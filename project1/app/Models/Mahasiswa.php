@@ -8,5 +8,10 @@ class Mahasiswa extends Model
 {
     protected $table = 'mahasiswa';
 
+    protected $fillable = [
+        'nama',
+        'email'
+    ];
+
     public $timestamps = false;
 }
