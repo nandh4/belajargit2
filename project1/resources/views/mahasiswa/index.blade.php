@@ -234,7 +234,9 @@
                 </tbody>
 
             </table>
-
+<div class="px-6 py-5 border-t border-[#f5e1e6]">
+    {{ $mahasiswa->links() }}
+</div>
         </div>
 
     </div>
