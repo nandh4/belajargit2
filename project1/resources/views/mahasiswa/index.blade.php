@@ -51,7 +51,7 @@
                     </h2>
 
                     <p class="text-sm text-[#ad7f8d] mt-1">
-                        Total {{ $mahasiswa->count() }} data mahasiswa
+                        Total {{ $mahasiswa->total() }} data mahasiswa
                     </p>
                 </div>
 
@@ -234,13 +234,12 @@
                 </tbody>
 
             </table>
-<div class="px-6 py-5 border-t border-[#f5e1e6]">
-    {{ $mahasiswa->links() }}
-</div>
-        </div>
 
+    <!--Pagination -->
+    <div class="px-6 py-5 border-t border-[#f5e1e6]">
+        {{ $mahasiswa->links() }}
     </div>
-
+        
 
     <!-- Footer -->
     <p class="text-center text-xs text-[#c18d9d] mt-6">
