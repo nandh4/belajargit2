@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
 {
-    // Menampilkan semua data mahasiswa
-    public function index()
+    public function index() 
     {
         $mahasiswa = Mahasiswa::paginate(10);
 
@@ -16,13 +15,13 @@ class MahasiswaController extends Controller
     }
 
     // Menampilkan form tambah mahasiswa
-    public function create()
+    public function create() 
     {
         return view('mahasiswa.create');
     }
 
     // Menyimpan mahasiswa baru
-    public function store(Request $request)
+    public function store(Request $request) 
     {
         $request->validate([
             'nama' => 'required',
@@ -37,7 +36,7 @@ class MahasiswaController extends Controller
         return redirect()
             ->route('mahasiswa.index')
             ->with('success', 'Data mahasiswa berhasil ditambahkan.');
-    }
+    }   
 
     // Menampilkan form edit
     public function edit($id)
@@ -45,7 +44,7 @@ class MahasiswaController extends Controller
         $mahasiswa = Mahasiswa::findOrFail($id);
 
         return view('mahasiswa.edit', compact('mahasiswa'));
-    }
+    }   
 
     // Mengubah data mahasiswa
     public function update(Request $request, $id)
@@ -55,27 +54,27 @@ class MahasiswaController extends Controller
             'email' => 'required|email'
         ]);
 
-        $mahasiswa = Mahasiswa::findOrFail($id);
+        $mahasiswa = Mahasiswa::findOrFail($id); 
 
         $mahasiswa->update([
             'nama' => $request->nama,
             'email' => $request->email
-        ]);
+        ]); 
 
         return redirect()
             ->route('mahasiswa.index')
             ->with('success', 'Data mahasiswa berhasil diubah.');
-    }
+    }   
 
     // Menghapus mahasiswa
-    public function destroy($id)
+    public function destroy($id) 
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
 
-        $mahasiswa->delete();
+        $mahasiswa->delete(); 
 
         return redirect()
             ->route('mahasiswa.index')
             ->with('success', 'Data mahasiswa berhasil dihapus.');
-    }
+    }   
 }

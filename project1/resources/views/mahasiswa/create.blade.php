@@ -34,7 +34,7 @@
     <div class="bg-white rounded-2xl shadow-sm border border-[#f5dce3] p-6">
 
         <!-- Error Validasi -->
-        @if ($errors->any())
+        @if ($errors->any()) 
 
             <div class="bg-[#fdecef] border border-[#f3cbd6] text-[#a05268] px-4 py-3 rounded-xl mb-6">
 
@@ -44,8 +44,8 @@
 
                 <ul class="list-disc list-inside text-sm">
 
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                    @foreach ($errors->all() as $error) 
+                        <li>{{ $error }}</li> 
                     @endforeach
 
                 </ul>
@@ -57,7 +57,8 @@
 
         <!-- Form -->
         <form action="{{ route('mahasiswa.store') }}" method="POST">
-
+        //menentukan tjn form, yaitu route utk menyimpan data mhs baru
+        
             @csrf
 
 

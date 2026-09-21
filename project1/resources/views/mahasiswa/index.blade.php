@@ -52,7 +52,7 @@
 
                     <p class="text-sm text-[#ad7f8d] mt-1">
                         Total {{ $mahasiswa->total() }} data mahasiswa
-                    </p>
+                    </p> 
                 </div>
 
 
@@ -120,13 +120,13 @@
 
                 <tbody>
 
-                    @forelse ($mahasiswa as $mhs)
+                    @forelse ($mahasiswa as $mhs) 
 
                         <tr class="mahasiswa-row border-t border-[#f6e5e9] hover:bg-[#fff8fa] transition">
 
                             <td class="px-6 py-4 text-sm text-gray-500">
                                 {{ $mhs->id }}
-                            </td>
+                            </td> 
 
 
                             <td class="px-6 py-4">
@@ -158,12 +158,12 @@
 
                                     <!-- Edit -->
                                     <form action="{{ route('mahasiswa.edit', $mhs->id) }}"
-                                          method="GET">
+                                          method="GET"> 
 
                                         <button type="submit"
                                                 class="bg-[#f9dce4] hover:bg-[#f4cbd6] text-[#a2576c] px-3 py-2 rounded-lg text-sm">
                                             ✏️ Edit
-                                        </button>
+                                        </button> 
 
                                     </form>
 
@@ -172,7 +172,7 @@
                                     <form action="{{ route('mahasiswa.destroy', $mhs->id) }}"
                                           method="POST">
 
-                                        @csrf
+                                        @csrf 
                                         @method('DELETE')
 
                                         <button type="submit"
@@ -238,9 +238,8 @@
     <!--Pagination -->
     <div class="px-6 py-5 border-t border-[#f5e1e6]">
         {{ $mahasiswa->links() }}
-    </div>
+    </div> 
         
-
     <!-- Footer -->
     <p class="text-center text-xs text-[#c18d9d] mt-6">
         Sistem Data Mahasiswa
@@ -252,7 +251,7 @@
 <!-- JavaScript Pencarian -->
 <script>
 
-    const searchInput = document.getElementById('searchInput');
+    const searchInput = document.getElementById('searchInput'); 
     const rows = document.querySelectorAll('.mahasiswa-row');
     const noResult = document.getElementById('noResult');
 
@@ -260,7 +259,7 @@
 
         const keyword = searchInput.value.toLowerCase();
 
-        let ditemukan = false;
+        let ditemukan = false; 
 
         rows.forEach(function (row) {
 
@@ -270,7 +269,7 @@
             if (nama.includes(keyword) || email.includes(keyword)) {
 
                 row.style.display = '';
-                ditemukan = true;
+                ditemukan = true; 
 
             } else {
 
@@ -283,7 +282,7 @@
 
         if (ditemukan || keyword === '') {
 
-            noResult.classList.add('hidden');
+            noResult.classList.add('hidden'); 
 
         } else {
 
