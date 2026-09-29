@@ -26,4 +26,9 @@ class Tagging extends Model
         'geotag_latitude',
         'geotag_longitude',
     ];
+
+        public function getKodeKecamatanAttribute()
+    {
+        return substr($this->level_6_full_code, 0, 7);
+    }
 }

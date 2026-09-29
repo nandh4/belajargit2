@@ -76,8 +76,8 @@
         Import CSV
     </a>
 
-    <a href="{{ route('tagging.map') }}"
-       style="padding: 10px 15px; background: #6f42c1; color: white; text-decoration: none; border-radius: 5px;">
+    <a href="{{ route('tagging.map', ['kecamatan' => request('kecamatan')]) }}"
+        style="padding: 10px 15px; background: #6f42c1; color: white; text-decoration: none; border-radius: 5px;">
         🗺️ Lihat Peta
     </a>
 @endauth
@@ -86,6 +86,52 @@
 </div>
 
     <div class="table-container">
+
+    <form action="{{ route('tagging.index') }}" method="GET" style="margin-bottom: 20px;">
+        
+        <label for="kecamatan"><strong>Filter Kecamatan:</strong></label>
+
+        <select name="kecamatan" id="kecamatan" onchange="this.form.submit()">
+            <option value="">-- Semua Kecamatan --</option>
+
+            @foreach($kecamatans as $kecamatan)
+                <option value="{{ $kecamatan->kode_wilayah }}"
+                    {{ request('kecamatan') == $kecamatan->kode_wilayah ? 'selected' : '' }}>
+                    {{ $kecamatan->nama_wilayah }}
+                </option>
+            @endforeach
+        </select>
+    </form>
+
+            <form action="{{ route('tagging.index') }}" method="GET" style="margin-bottom: 20px;">
+
+        @if(request('kecamatan'))
+            <input type="hidden" name="kecamatan" value="{{ request('kecamatan') }}">
+        @endif
+
+        <label for="search"><strong>Pencarian Data:</strong></label>
+
+        <input
+            type="text"
+            name="search"
+            id="search"
+            value="{{ request('search') }}"
+            placeholder="Cari assignment ID, nama usaha, atau nama KK..."
+            style="padding: 8px; width: 300px;"
+        >
+
+        <button type="submit" style="padding: 8px 15px;">
+            Cari
+        </button>
+
+        @if(request('search'))
+            <a href="{{ route('tagging.index', ['kecamatan' => request('kecamatan')]) }}"
+               style="margin-left: 10px;">
+                Reset
+            </a>
+        @endif
+
+    </form>
 
         <table>
 
@@ -121,7 +167,24 @@
                         </td>
 
                         <td>
-                            {{ $tagging->assignment_status_alias }}
+                            @if($tagging->assignment_status_alias === 'APPROVED BY Pengawas')
+                                <span style="padding: 5px 10px; background: #28a745; color: white; border-radius: 15px;">
+                                    Approved
+                                </span>
+
+                            @elseif($tagging->assignment_status_alias === 'SUBMITTED BY Pencacah')
+                                <span style="padding: 5px 10px; background: #ffc107; color: black; border-radius: 15px;">
+                                    Submitted
+                                </span>
+
+                            @elseif($tagging->assignment_status_alias === 'REJECTED BY Pengawas')
+                                <span style="padding: 5px 10px; background: #dc3545; color: white; border-radius: 15px;">
+                                    Rejected
+                                </span>
+
+                            @else
+                                {{ $tagging->assignment_status_alias }}
+                            @endif
                         </td>
 
                         <td>
@@ -158,6 +221,7 @@
 
     <td>
     @if(auth()->user()->role === 'admin')
+
         <a href="{{ route('tagging.edit', $tagging->id) }}"
            style="padding: 5px 10px; background: #ffc107; color: black; text-decoration: none; border-radius: 4px;">
             Edit

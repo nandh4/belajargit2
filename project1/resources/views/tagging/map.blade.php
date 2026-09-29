@@ -145,4 +145,21 @@
     </script>
 
 </body>
+
+<div style="padding: 15px; background: white;">
+    <form action="{{ route('tagging.map') }}" method="GET">
+        <label for="kecamatan"><strong>Filter Kecamatan:</strong></label>
+
+        <select name="kecamatan" id="kecamatan" onchange="this.form.submit()">
+            <option value="">-- Semua Kecamatan --</option>
+
+            @foreach($kecamatans as $kecamatan)
+                <option value="{{ $kecamatan->kode_wilayah }}"
+                    {{ request('kecamatan') == $kecamatan->kode_wilayah ? 'selected' : '' }}>
+                    {{ $kecamatan->nama_wilayah }}
+                </option>
+            @endforeach
+        </select>
+    </form>
+</div>
 </html>

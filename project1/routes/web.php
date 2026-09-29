@@ -6,7 +6,6 @@ use App\Http\Controllers\TaggingController;
 use App\Http\Controllers\TaggingImportController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Middleware\RoleMiddleware;
 
 /*
 Route::get('/', function () {

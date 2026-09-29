@@ -19,8 +19,54 @@
         Role:
         <strong>{{ ucfirst(auth()->user()->role) }}</strong>
     </p>
-
     <hr>
+        <h2>Statistik Data Tagging</h2>
+
+<div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+
+    <div style="border: 1px solid #ddd; padding: 20px; width: 180px; border-radius: 8px;">
+        <h3>Total Data</h3>
+        <p style="font-size: 28px; font-weight: bold;">
+            {{ $totalData }}
+        </p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 20px; width: 180px; border-radius: 8px;">
+        <h3>Dengan Lokasi</h3>
+        <p style="font-size: 28px; font-weight: bold;">
+            {{ $totalDenganLokasi }}
+        </p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 20px; width: 180px; border-radius: 8px;">
+        <h3>Tanpa Lokasi</h3>
+        <p style="font-size: 28px; font-weight: bold;">
+            {{ $totalTanpaLokasi }}
+        </p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 20px; width: 180px; border-radius: 8px;">
+        <h3>Approved</h3>
+        <p style="font-size: 28px; font-weight: bold;">
+            {{ $totalApproved }}
+        </p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 20px; width: 180px; border-radius: 8px;">
+        <h3>Submitted</h3>
+        <p style="font-size: 28px; font-weight: bold;">
+            {{ $totalSubmitted }}
+        </p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 20px; width: 180px; border-radius: 8px;">
+        <h3>Rejected</h3>
+        <p style="font-size: 28px; font-weight: bold;">
+            {{ $totalRejected }}
+        </p>
+    </div>
+
+</div>
 
     <h2>Menu</h2>
 
@@ -89,5 +135,39 @@
         </button>
     </form>
 
+    <h2>Grafik Status Data</h2>
+
+<div style="width: 600px; max-width: 100%;">
+    <canvas id="statusChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('statusChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Approved', 'Submitted', 'Rejected'],
+            datasets: [{
+                label: 'Jumlah Data',
+                data: [
+                    {{ $totalApproved }},
+                    {{ $totalSubmitted }},
+                    {{ $totalRejected }}
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
 </body>
 </html>
