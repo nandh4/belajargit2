@@ -39,6 +39,9 @@
 
         th {
             background-color: #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 2;
         }
 
         tr:nth-child(even) {
@@ -88,6 +91,10 @@
     <div class="table-container">
 
     <form action="{{ route('tagging.index') }}" method="GET" style="margin-bottom: 20px;">
+
+        @if(request('search'))
+            <input type="hidden" name="search" value="{{ request('search') }}">
+        @endif
         
         <label for="kecamatan"><strong>Filter Kecamatan:</strong></label>
 
@@ -124,14 +131,22 @@
             Cari
         </button>
 
-        @if(request('search'))
-            <a href="{{ route('tagging.index', ['kecamatan' => request('kecamatan')]) }}"
-               style="margin-left: 10px;">
-                Reset
+        @if(request('search') || request('kecamatan'))
+            <a href="{{ route('tagging.index') }}"
+            style="
+                margin-left: 10px;
+                padding: 8px 12px;
+                background: #6c757d;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+            ">
+                Reset Filter
             </a>
         @endif
-
     </form>
+
+    <div style="overflow-x: auto;">
 
         <table>
 
@@ -192,31 +207,31 @@
                         </td>
 
                         <td>
-                            {{ $tagging->nama_usaha_bang }}
+                            {{ $tagging->nama_usaha_bang ?? '-' }}
                         </td>
 
                         <td>
-                            {{ $tagging->nama_kk }}
+                            {{ $tagging->nama_kk ?? '-' }}
                         </td>
 
                         <td>
-                            {{ $tagging->ada_keluarga_label }}
+                            {{ $tagging->ada_keluarga_label ?? '-' }}
                         </td>
 
                         <td>
-                            {{ $tagging->ada_bang_usaha_label }}
+                            {{ $tagging->ada_bang_usaha_label ?? '-' }}
                         </td>
 
                         <td>
-                            {{ $tagging->geotag_accuracy }}
+                            {{ $tagging->geotag_accuracy ?? '-' }}
                         </td>
 
                         <td>
-                            {{ $tagging->geotag_latitude }}
+                            {{ $tagging->geotag_latitude ?? '-' }}
                         </td>
 
                         <td>
-                            {{ $tagging->geotag_longitude }}
+                            {{ $tagging->geotag_longitude ?? '-' }}
                         </td>
 
     <td>
@@ -259,6 +274,8 @@
             </tbody>
 
         </table>
+
+        </div>
 
         <div class="pagination">
             {{ $taggings->links() }}

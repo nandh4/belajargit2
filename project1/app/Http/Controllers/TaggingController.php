@@ -135,8 +135,18 @@ class TaggingController extends Controller
             ->whereNotNull('geotag_longitude');
 
         if ($request->filled('kecamatan')) {
-            $query->where('level_6_full_code', 'like', $request->kecamatan . '%');
-        }
+    $query->where('level_6_full_code', 'like', $request->kecamatan . '%');
+}
+
+// Pencarian data
+        if ($request->filled('search')) {
+            $search = $request->search;
+
+            $query->where('assignment_id', 'like', '%' . $search . '%')
+            ->orWhere('level_6_full_code', 'like', '%' . $search . '%')
+            ->orWhere('nama_usaha_bang', 'like', '%' . $search . '%')
+            ->orWhere('nama_kk', 'like', '%' . $search . '%');
+            }
 
         $taggings = $query->get();
 

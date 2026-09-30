@@ -31,19 +31,65 @@ class TaggingImportController extends Controller
         // Membuka file CSV.
         $handle = fopen($file->getRealPath(), 'r');
 
+        if ($handle === false) {
+            return back()
+                ->withErrors([
+                    'file' => 'File CSV tidak dapat dibuka.',
+                ]);
+        }
+
         // Membaca baris pertama sebagai header.
         $header = fgetcsv($handle);
 
-        // Menghitung jumlah data yang berhasil dimasukkan.
-        $jumlahData = 0;
+        if ($header === false) {
+            fclose($handle);
+
+            return back()
+                ->withErrors([
+                    'file' => 'File CSV kosong atau tidak memiliki header.',
+                ]);
+        }
+
+        // Header CSV yang diharapkan.
+        $headerYangDiharapkan = [
+            'assignment_id',
+            'assignment_status_alias',
+            'level_6_full_code',
+            'nama_usaha_bang',
+            'nama_kk',
+            'ada_keluarga_label',
+            'ada_bang_usaha_label',
+            'geotag_accuracy',
+            'geotag_latitude',
+            'geotag_longitude',
+        ];
+
+        // Memeriksa apakah header CSV sesuai.
+        if ($header !== $headerYangDiharapkan) {
+            fclose($handle);
+
+            return back()
+                ->withErrors([
+                    'file' => 'Format kolom CSV tidak sesuai dengan format data tagging.',
+                ]);
+        }
+
+        // Menghitung jumlah data baru dan data yang diperbarui.
+            $jumlahBaru = 0;
+            $jumlahDiperbarui = 0;
 
         // Membaca CSV baris demi baris.
         while (($row = fgetcsv($handle)) !== false) {
 
             // Menghindari baris kosong.
-            if (count($row) < 10) {
+            if (count($row) < 10 || empty(trim($row[0]))) {
                 continue;
             }
+
+            $existing = Tagging::where(
+                'assignment_id',
+                trim($row[0])
+            )->exists();
 
             // Memasukkan data CSV ke tabel taggings.
             Tagging::updateOrCreate(
@@ -63,7 +109,11 @@ class TaggingImportController extends Controller
                 ]
             );
 
-            $jumlahData++;
+            if ($existing) {
+                $jumlahDiperbarui++;
+            } else {
+                $jumlahBaru++;
+            }
         }
 
         // Menutup file.
@@ -72,6 +122,9 @@ class TaggingImportController extends Controller
         // Kembali ke halaman import dengan pesan berhasil.
         return redirect()
             ->route('tagging.import')
-            ->with('success', "$jumlahData data tagging berhasil diimport.");
+            ->with(
+            'success',
+            "Import berhasil. Data baru: $jumlahBaru | Data diperbarui: $jumlahDiperbarui"
+        );
     }
 }
