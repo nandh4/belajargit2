@@ -6,6 +6,7 @@ use App\Http\Controllers\TaggingController;
 use App\Http\Controllers\TaggingImportController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AccountController;
 
 /*
 Route::get('/', function () {
@@ -52,3 +53,14 @@ Route::get('/tagging/import', [TaggingImportController::class, 'index'])
 Route::post('/tagging/import', [TaggingImportController::class, 'import'])
     ->name('tagging.import.process')
     ->middleware(['auth', 'role:admin,operator']);
+
+// Pengaturan akun
+Route::middleware('auth')->group(function () {
+
+    Route::get('/account/settings', [AccountController::class, 'settings'])
+        ->name('account.settings');
+
+    Route::put('/account/settings', [AccountController::class, 'update'])
+        ->name('account.update');
+
+});

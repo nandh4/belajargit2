@@ -19,23 +19,24 @@
         html,
         body {
             width: 100%;
-            height: 100%;
+            min-height: 100%;
         }
 
         body {
             font-family: "Segoe UI", Arial, sans-serif;
+
             background:
                 radial-gradient(
-                    circle at 10% 20%,
-                    rgba(25, 151, 215, 0.12),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 90% 80%,
-                    rgba(8, 107, 164, 0.10),
+                    circle at 10% 15%,
+                    rgba(239, 182, 200, 0.22),
                     transparent 30%
                 ),
-                #eef5f9;
+                radial-gradient(
+                    circle at 90% 85%,
+                    rgba(216, 143, 168, 0.16),
+                    transparent 32%
+                ),
+                #fff7fa;
 
             display: flex;
             align-items: center;
@@ -43,9 +44,9 @@
 
             min-height: 100vh;
 
-            overflow: hidden;
+            padding: 30px;
 
-            color: #172033;
+            color: #3f2932;
         }
 
 
@@ -55,24 +56,22 @@
 
         .login-wrapper {
 
-            width: min(1120px, calc(100% - 60px));
+            width: min(1120px, 100%);
 
-            height: min(650px, calc(100vh - 60px));
-
-            min-height: 570px;
+            min-height: 650px;
 
             display: grid;
 
             grid-template-columns: 57% 43%;
 
-            background: white;
+            background: #ffffff;
 
             border-radius: 24px;
 
             overflow: hidden;
 
             box-shadow:
-                0 25px 70px rgba(8, 70, 110, 0.16),
+                0 25px 70px rgba(139, 74, 96, 0.14),
                 0 8px 25px rgba(0, 0, 0, 0.05);
 
             position: relative;
@@ -80,7 +79,7 @@
 
 
         /* =====================================================
-           LEFT BLUE BANNER
+           LEFT BANNER
         ===================================================== */
 
         .banner {
@@ -89,16 +88,16 @@
 
             overflow: hidden;
 
-            padding: 34px 40px 30px;
+            padding: 36px 40px 30px;
 
             color: white;
 
             background:
                 linear-gradient(
-                    135deg,
-                    #064e75 0%,
-                    #075f8e 42%,
-                    #087bb9 100%
+                    145deg,
+                    #c97894 0%,
+                    #d98fa8 45%,
+                    #e5a5bb 100%
                 );
 
             display: flex;
@@ -111,23 +110,21 @@
         }
 
 
-        /* decorative circles */
-
         .banner::before {
 
             content: "";
 
             position: absolute;
 
-            width: 330px;
-            height: 330px;
+            width: 350px;
+            height: 350px;
 
             border-radius: 50%;
 
-            right: -150px;
-            top: -155px;
+            right: -165px;
+            top: -175px;
 
-            background: rgba(255,255,255,0.07);
+            background: rgba(255,255,255,0.10);
         }
 
 
@@ -137,15 +134,15 @@
 
             position: absolute;
 
-            width: 260px;
-            height: 260px;
+            width: 290px;
+            height: 290px;
 
             border-radius: 50%;
 
-            left: -145px;
-            bottom: -150px;
+            left: -165px;
+            bottom: -170px;
 
-            background: rgba(255,255,255,0.055);
+            background: rgba(255,255,255,0.07);
         }
 
 
@@ -180,14 +177,14 @@
             align-items: center;
             justify-content: center;
 
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.18);
 
-            border: 1px solid rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.24);
 
             font-size: 23px;
 
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,0.15);
+                inset 0 1px 0 rgba(255,255,255,0.18);
         }
 
 
@@ -205,7 +202,7 @@
 
             font-size: 11px;
 
-            color: #c9e8f8;
+            color: #fff0f5;
 
             line-height: 1.4;
         }
@@ -221,7 +218,7 @@
 
             z-index: 2;
 
-            margin-top: 5px;
+            margin-top: 8px;
         }
 
 
@@ -239,11 +236,11 @@
 
             border-radius: 30px;
 
-            background: rgba(255,255,255,0.11);
+            background: rgba(255,255,255,0.13);
 
-            border: 1px solid rgba(255,255,255,0.13);
+            border: 1px solid rgba(255,255,255,0.16);
 
-            color: #d8f2ff;
+            color: #fff4f7;
 
             font-size: 10px;
 
@@ -262,9 +259,10 @@
 
             border-radius: 50%;
 
-            background: #8ee8b1;
+            background: #b9f2ca;
 
-            box-shadow: 0 0 8px rgba(142,232,177,0.8);
+            box-shadow:
+                0 0 8px rgba(185,242,202,0.8);
         }
 
 
@@ -284,7 +282,7 @@
 
         .banner-content h1 span {
 
-            color: #9edfff;
+            color: #fff0f5;
         }
 
 
@@ -292,7 +290,7 @@
 
             max-width: 500px;
 
-            color: #d4edf9;
+            color: #fff0f5;
 
             font-size: 13px;
 
@@ -320,19 +318,17 @@
 
             background:
                 linear-gradient(
-                    rgba(255,255,255,0.025),
-                    rgba(255,255,255,0.025)
+                    rgba(105, 45, 65, 0.18),
+                    rgba(105, 45, 65, 0.18)
                 ),
-                rgba(2, 52, 78, 0.35);
+                rgba(113, 54, 75, 0.22);
 
-            border: 1px solid rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.18);
 
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,0.06);
+                inset 0 1px 0 rgba(255,255,255,0.08);
         }
 
-
-        /* grid */
 
         .map-grid {
 
@@ -342,12 +338,12 @@
 
             background-image:
                 linear-gradient(
-                    rgba(255,255,255,0.055) 1px,
+                    rgba(255,255,255,0.075) 1px,
                     transparent 1px
                 ),
                 linear-gradient(
                     90deg,
-                    rgba(255,255,255,0.055) 1px,
+                    rgba(255,255,255,0.075) 1px,
                     transparent 1px
                 );
 
@@ -355,15 +351,13 @@
         }
 
 
-        /* map lines */
-
         .map-line {
 
             position: absolute;
 
             height: 2px;
 
-            background: rgba(141, 218, 249, 0.35);
+            background: rgba(255,240,246,0.42);
 
             transform-origin: left center;
 
@@ -415,8 +409,6 @@
         }
 
 
-        /* map points */
-
         .map-point {
 
             position: absolute;
@@ -426,13 +418,13 @@
 
             border-radius: 50%;
 
-            background: #fff;
+            background: #ffffff;
 
-            border: 3px solid #45c8f5;
+            border: 3px solid #f8d5e1;
 
             box-shadow:
-                0 0 0 5px rgba(69,200,245,0.13),
-                0 0 15px rgba(69,200,245,0.65);
+                0 0 0 5px rgba(248,213,225,0.13),
+                0 0 15px rgba(255,225,236,0.60);
         }
 
 
@@ -473,9 +465,9 @@
 
             border-radius: 6px;
 
-            background: rgba(0,0,0,0.20);
+            background: rgba(87, 34, 53, 0.28);
 
-            color: #bfeaff;
+            color: #ffe8f0;
 
             font-size: 9px;
 
@@ -511,9 +503,9 @@
 
             border-radius: 10px;
 
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.11);
 
-            border: 1px solid rgba(255,255,255,0.09);
+            border: 1px solid rgba(255,255,255,0.12);
         }
 
 
@@ -529,7 +521,7 @@
 
         .mini-stat span {
 
-            color: #bfe4f5;
+            color: #ffe7ef;
 
             font-size: 9px;
 
@@ -561,9 +553,9 @@
 
             margin-top: 14px;
 
-            border-top: 1px solid rgba(255,255,255,0.13);
+            border-top: 1px solid rgba(255,255,255,0.18);
 
-            color: #bfe1ef;
+            color: #ffe6ee;
 
             font-size: 10px;
         }
@@ -588,9 +580,10 @@
 
             border-radius: 50%;
 
-            background: #79e3a2;
+            background: #b9f2ca;
 
-            box-shadow: 0 0 8px rgba(121,227,162,0.7);
+            box-shadow:
+                0 0 8px rgba(185,242,202,0.7);
         }
 
 
@@ -630,9 +623,9 @@
 
             border-radius: 7px;
 
-            background: #eaf6fc;
+            background: #fff0f4;
 
-            color: #0873a9;
+            color: #b95d7c;
 
             font-size: 10px;
 
@@ -650,7 +643,7 @@
 
             font-size: 28px;
 
-            color: #172033;
+            color: #402b34;
 
             margin-bottom: 7px;
 
@@ -660,7 +653,7 @@
 
         .login-description {
 
-            color: #7b8798;
+            color: #8a7880;
 
             font-size: 12px;
 
@@ -670,7 +663,9 @@
         }
 
 
-        /* ERROR */
+        /* =====================================================
+           ERROR
+        ===================================================== */
 
         .error {
 
@@ -690,7 +685,9 @@
         }
 
 
-        /* FORM */
+        /* =====================================================
+           FORM
+        ===================================================== */
 
         .form-group {
 
@@ -704,7 +701,7 @@
 
             margin-bottom: 7px;
 
-            color: #334155;
+            color: #55424a;
 
             font-size: 12px;
 
@@ -727,7 +724,7 @@
 
             transform: translateY(-50%);
 
-            color: #94a3b8;
+            color: #b38d9c;
 
             font-size: 14px;
 
@@ -743,13 +740,13 @@
 
             padding: 0 42px;
 
-            border: 1px solid #d9e3eb;
+            border: 1px solid #ead9df;
 
             border-radius: 9px;
 
-            background: #fbfdff;
+            background: #fffafb;
 
-            color: #1e293b;
+            color: #43333a;
 
             font-family: inherit;
 
@@ -763,18 +760,18 @@
 
         .form-group input::placeholder {
 
-            color: #a8b4c2;
+            color: #b8a8af;
         }
 
 
         .form-group input:focus {
 
-            border-color: #1594cf;
+            border-color: #d98fa8;
 
             background: white;
 
             box-shadow:
-                0 0 0 3px rgba(21,148,207,0.10);
+                0 0 0 3px rgba(217,143,168,0.12);
         }
 
 
@@ -791,7 +788,7 @@
 
             background: transparent;
 
-            color: #94a3b8;
+            color: #b38d9c;
 
             cursor: pointer;
 
@@ -803,11 +800,13 @@
 
         .password-toggle:hover {
 
-            color: #0873a9;
+            color: #b95d7c;
         }
 
 
-        /* LOGIN BUTTON */
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
 
         .login-button {
 
@@ -824,8 +823,8 @@
             background:
                 linear-gradient(
                     135deg,
-                    #086c9f,
-                    #1598d3
+                    #c97894,
+                    #d98fa8
                 );
 
             color: white;
@@ -839,7 +838,7 @@
             cursor: pointer;
 
             box-shadow:
-                0 8px 18px rgba(8,108,159,0.20);
+                0 8px 18px rgba(201,120,148,0.22);
 
             transition: 0.2s;
         }
@@ -850,7 +849,7 @@
             transform: translateY(-1px);
 
             box-shadow:
-                0 10px 22px rgba(8,108,159,0.27);
+                0 10px 22px rgba(201,120,148,0.30);
         }
 
 
@@ -860,13 +859,17 @@
         }
 
 
+        /* =====================================================
+           LOGIN FOOTER
+        ===================================================== */
+
         .login-note {
 
             margin-top: 18px;
 
             text-align: center;
 
-            color: #a0acb9;
+            color: #a8959e;
 
             font-size: 10px;
 
@@ -884,7 +887,7 @@
 
             margin: 20px 0 15px;
 
-            color: #c0c9d2;
+            color: #c1afb7;
 
             font-size: 9px;
 
@@ -903,7 +906,7 @@
 
             height: 1px;
 
-            background: #e8edf2;
+            background: #eee3e7;
         }
 
 
@@ -922,12 +925,9 @@
 
                 width: min(650px, calc(100% - 35px));
 
-                height: auto;
-
                 min-height: 0;
 
                 grid-template-columns: 1fr;
-
             }
 
             .banner {
@@ -939,11 +939,14 @@
 
                 min-height: 500px;
             }
-
         }
 
 
         @media (max-width: 560px) {
+
+            body {
+                padding: 15px 0;
+            }
 
             .login-wrapper {
 
@@ -979,6 +982,14 @@
                 gap: 6px;
             }
 
+            .banner-footer {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 7px;
+            }
         }
 
     </style>

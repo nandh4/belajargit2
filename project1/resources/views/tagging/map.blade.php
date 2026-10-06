@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,162 +20,313 @@
             box-sizing: border-box;
         }
 
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f8fb;
-            color: #172033;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #fbf8fa;
+
+            color: #40393d;
         }
+
 
 
         /* =========================================
            SIDEBAR
+           SAMA DENGAN DASHBOARD
         ========================================= */
 
         .sidebar {
+
             width: 250px;
-            min-height: 100vh;
+
+            height: 100vh;
+
             position: fixed;
+
             left: 0;
+
             top: 0;
+
             bottom: 0;
+
             display: flex;
+
             flex-direction: column;
+
             padding: 24px 15px;
-            background: linear-gradient(
-                180deg,
-                #075985 0%,
-                #0b6fa8 55%,
-                #087bb9 100%
-            );
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #efb6c8 0%,
+                    #e5a5bb 55%,
+                    #d98fa8 100%
+                );
+
             color: white;
-            box-shadow: 4px 0 18px rgba(0, 0, 0, 0.08);
+
+            box-shadow:
+                4px 0 18px
+                rgba(126, 72, 91, 0.10);
+
             z-index: 1000;
+
+            overflow: hidden;
         }
+
+
 
         .sidebar-brand {
-            padding: 5px 12px 25px;
-            margin-bottom: 22px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-        }
 
-        .brand-icon {
-            width: 46px;
-            height: 46px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            border-radius: 12px;
-            background-color: rgba(255, 255, 255, 0.17);
-            font-size: 23px;
-        }
-
-        .sidebar-brand h2 {
-            margin: 0 0 5px;
-            font-size: 18px;
-            letter-spacing: 0.4px;
-        }
-
-        .sidebar-brand p {
-            margin: 0;
-            color: #d8effc;
-            font-size: 11px;
-            line-height: 1.5;
-        }
-
-        .menu-title {
-            padding: 0 12px;
-            margin-bottom: 9px;
-            color: #b9dff3;
-            font-size: 10px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .sidebar-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .sidebar-menu a {
-            display: flex;
-            align-items: center;
-            gap: 13px;
-            padding: 12px 13px;
-            color: #e8f6ff;
-            text-decoration: none;
-            border-radius: 9px;
-            font-size: 14px;
-            transition: all 0.2s ease;
-        }
-
-        .sidebar-menu a:hover {
-            background-color: rgba(255, 255, 255, 0.13);
-            color: white;
-            transform: translateX(2px);
-        }
-
-        .sidebar-menu a.active {
-            background-color: white;
-            color: #075985;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .menu-icon {
-            width: 23px;
             text-align: center;
-            font-size: 17px;
+
+            margin-bottom: 25px;
+
             flex-shrink: 0;
         }
 
-        .sidebar-bottom {
-            margin-top: auto;
-        }
 
-        .user-mini {
-            padding: 13px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.10);
-        }
 
-        .user-mini-name {
-            font-size: 13px;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        .brand-icon {
 
-        .user-mini-role {
-            margin-top: 4px;
-            color: #cce9f8;
-            font-size: 11px;
-        }
+            width: 52px;
 
-        .logout-button {
-            width: 100%;
+            height: 52px;
+
+            margin: 0 auto 10px;
+
             display: flex;
+
             align-items: center;
+
+            justify-content: center;
+
+            background:
+                rgba(255, 255, 255, 0.22);
+
+            border-radius: 14px;
+
+            font-size: 25px;
+
+            box-shadow:
+                0 4px 12px
+                rgba(126, 72, 91, 0.08);
+        }
+
+
+
+        .sidebar-brand h2 {
+
+            margin: 0;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+        }
+
+
+
+        .sidebar-brand p {
+
+            margin: 5px 0 0;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+            opacity: 0.9;
+        }
+
+
+
+        .menu-title {
+
+            margin-bottom: 10px;
+
+            padding-left: 8px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            opacity: 0.75;
+
+            flex-shrink: 0;
+        }
+
+
+
+        .sidebar-menu {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            flex-shrink: 0;
+        }
+
+
+
+        .sidebar-menu a {
+
+            display: flex;
+
+            align-items: center;
+
             gap: 12px;
+
             padding: 11px 13px;
-            border: none;
+
             border-radius: 9px;
-            background-color: rgba(255, 255, 255, 0.10);
+
             color: white;
-            cursor: pointer;
+
+            text-decoration: none;
+
             font-size: 14px;
-            text-align: left;
+
             transition: 0.2s;
         }
 
-        .logout-button:hover {
-            background-color: #dc3545;
+
+
+        .sidebar-menu a:hover {
+
+            background:
+                rgba(255, 255, 255, 0.16);
         }
+
+
+
+        .sidebar-menu a.active {
+
+            background:
+                rgba(255, 255, 255, 0.25);
+
+            box-shadow:
+                0 4px 10px
+                rgba(126, 72, 91, 0.08);
+        }
+
+
+
+        .menu-icon {
+
+            width: 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 16px;
+
+            flex-shrink: 0;
+        }
+
+
+
+        .sidebar-bottom {
+
+            margin-top: auto;
+
+            flex-shrink: 0;
+        }
+
+
+
+        .user-mini {
+
+            padding: 12px 13px;
+
+            margin-bottom: 8px;
+
+            background:
+                rgba(255, 255, 255, 0.12);
+
+            border-radius: 9px;
+        }
+
+
+
+        .user-mini-name {
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+
+
+        .user-mini-role {
+
+            margin-top: 3px;
+
+            font-size: 11px;
+
+            opacity: 0.8;
+        }
+
+
+
+        .logout-button {
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 11px 13px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+                rgba(255, 255, 255, 0.12);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            text-align: left;
+
+            transition: 0.2s;
+        }
+
+
+
+        .logout-button:hover {
+
+            background: #c96f89;
+        }
+
 
 
         /* =========================================
@@ -181,41 +334,98 @@
         ========================================= */
 
         .main-content {
-            width: calc(100% - 250px);
+
+            width:
+                calc(100% - 250px);
+
             margin-left: 250px;
-            padding: 25px 30px;
+
+            padding:
+                28px 34px 40px;
+
+            min-height: 100vh;
         }
+
+
+
+        /* =========================================
+           TOP BAR
+        ========================================= */
 
         .top-bar {
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
-            margin-bottom: 16px;
+
+            gap: 20px;
+
+            margin-bottom: 18px;
         }
+
+
 
         .page-title h1 {
-            margin: 0 0 5px;
+
+            margin:
+                0 0 5px;
+
+            color: #383236;
+
             font-size: 25px;
-            color: #172033;
         }
+
+
 
         .page-title p {
+
             margin: 0;
-            color: #718096;
-            font-size: 14px;
+
+            color: #81767c;
+
+            font-size: 13px;
         }
 
+
+
         .system-badge {
+
             display: flex;
+
             align-items: center;
+
             gap: 7px;
-            padding: 9px 14px;
-            background-color: white;
-            border: 1px solid #dfe8ef;
+
+            padding:
+                9px 14px;
+
+            background: white;
+
+            border:
+                1px solid #eee1e7;
+
             border-radius: 9px;
-            color: #64748b;
+
+            color: #a95472;
+
             font-size: 12px;
+
+            box-shadow:
+                0 2px 8px
+                rgba(126, 72, 91, 0.03);
         }
+
+
+
+        .system-badge span {
+
+            color: #d98fa8;
+
+            font-size: 10px;
+        }
+
 
 
         /* =========================================
@@ -223,148 +433,307 @@
         ========================================= */
 
         .welcome-card {
+
             position: relative;
+
             overflow: hidden;
-            padding: 18px 25px;
-            margin-bottom: 15px;
-            border-radius: 15px;
-            background: linear-gradient(
-                120deg,
-                #096da5,
-                #2196d3
-            );
+
+            padding:
+                19px 24px;
+
+            margin-bottom: 16px;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #d88ea7,
+                    #ecb2c5
+                );
+
             color: white;
-            box-shadow: 0 7px 20px rgba(8,112,168,0.18);
+
+            box-shadow:
+                0 7px 20px
+                rgba(217, 143, 168, 0.20);
         }
+
+
 
         .welcome-card::before {
+
             content: "";
+
             position: absolute;
+
             width: 180px;
+
             height: 180px;
+
             right: -65px;
+
             top: -90px;
+
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.08);
+
+            background:
+                rgba(255, 255, 255, 0.12);
         }
+
+
 
         .welcome-card::after {
+
             content: "";
+
             position: absolute;
+
             width: 90px;
+
             height: 90px;
+
             right: 100px;
+
             bottom: -60px;
+
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.05);
+
+            background:
+                rgba(255, 255, 255, 0.08);
         }
 
+
+
         .welcome-card h2 {
+
             position: relative;
+
             z-index: 1;
-            margin: 0 0 5px;
+
+            margin:
+                0 0 5px;
+
             font-size: 20px;
         }
 
+
+
         .welcome-card p {
+
             position: relative;
+
             z-index: 1;
+
             margin: 0;
-            color: #dff3ff;
+
+            color: #fff5f8;
+
             font-size: 13px;
+
+            line-height: 1.5;
         }
+
 
 
         /* =========================================
-           FILTER
+           FILTER CARD
         ========================================= */
 
         .filter-card {
+
             background: white;
-            border: 1px solid #e2eaf0;
+
+            border:
+                1px solid #eee5e9;
+
             border-radius: 13px;
-            padding: 14px 18px;
-            margin-bottom: 15px;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+
+            padding:
+                15px 18px;
+
+            margin-bottom: 16px;
+
+            box-shadow:
+                0 3px 12px
+                rgba(126, 72, 91, 0.04);
         }
 
+
+
         .filter-form {
+
             display: grid;
-            grid-template-columns: 1.8fr 1fr auto;
+
+            grid-template-columns:
+                1.8fr 1fr auto;
+
             gap: 12px;
+
             align-items: end;
         }
 
+
+
         .form-group {
+
             display: flex;
+
             flex-direction: column;
+
             gap: 6px;
         }
 
+
+
         .form-group label {
+
+            color: #5f565b;
+
             font-size: 12px;
+
             font-weight: bold;
-            color: #475569;
         }
+
+
 
         .form-group input,
         .form-group select {
+
             width: 100%;
+
             height: 40px;
-            padding: 0 12px;
-            border: 1px solid #d8e2e9;
+
+            padding:
+                0 12px;
+
+            border:
+                1px solid #e8d8df;
+
             border-radius: 8px;
-            background-color: white;
-            color: #334155;
-            font-family: Arial, sans-serif;
+
+            background: white;
+
+            color: #40393d;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             font-size: 13px;
+
             outline: none;
+
+            transition: 0.2s;
         }
+
+
+
+        .form-group input::placeholder {
+
+            color: #a79ba1;
+        }
+
+
 
         .form-group input:focus,
         .form-group select:focus {
-            border-color: #0b79b5;
-            box-shadow: 0 0 0 3px rgba(11, 121, 181, 0.10);
+
+            border-color: #d98fa8;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(217, 143, 168, 0.12);
         }
 
+
+
         .filter-actions {
+
             display: flex;
+
             gap: 7px;
         }
 
+
+
         .btn-search {
+
             height: 40px;
-            padding: 0 17px;
+
+            padding:
+                0 17px;
+
             border: none;
+
             border-radius: 8px;
-            background-color: #075985;
+
+            background: #d98fa8;
+
             color: white;
+
             font-size: 13px;
+
             font-weight: bold;
+
             cursor: pointer;
+
+            transition: 0.2s;
         }
+
+
 
         .btn-search:hover {
-            background-color: #064d70;
+
+            background: #c97996;
+
+            transform:
+                translateY(-1px);
         }
+
+
 
         .btn-reset {
+
             height: 40px;
+
             display: flex;
+
             align-items: center;
-            padding: 0 14px;
-            border: 1px solid #d8e2e9;
+
+            justify-content: center;
+
+            padding:
+                0 14px;
+
+            border:
+                1px solid #e5cbd5;
+
             border-radius: 8px;
-            background-color: white;
-            color: #64748b;
+
+            background: #fffafb;
+
+            color: #a95472;
+
             text-decoration: none;
+
             font-size: 13px;
+
             white-space: nowrap;
+
+            transition: 0.2s;
         }
 
+
+
         .btn-reset:hover {
-            background-color: #f5f8fa;
+
+            background: #f7dce5;
+
+            border-color: #dfb3c3;
         }
+
 
 
         /* =========================================
@@ -372,137 +741,280 @@
         ========================================= */
 
         .map-card {
+
             overflow: hidden;
+
             background: white;
-            border: 1px solid #e2eaf0;
+
+            border:
+                1px solid #eee5e9;
+
             border-radius: 13px;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+
+            box-shadow:
+                0 3px 12px
+                rgba(126, 72, 91, 0.04);
         }
+
+
 
         .map-header {
-            min-height: 55px;
+
+            min-height: 58px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
-            padding: 10px 18px;
-            border-bottom: 1px solid #e8eef2;
+
+            gap: 15px;
+
+            padding:
+                11px 18px;
+
+            border-bottom:
+                1px solid #f0e4e8;
         }
+
+
 
         .map-header-left h3 {
-            margin: 0 0 3px;
+
+            margin:
+                0 0 3px;
+
+            color: #a95472;
+
             font-size: 15px;
-            color: #172033;
         }
 
+
+
         .map-header-left p {
+
             margin: 0;
-            color: #718096;
+
+            color: #81767c;
+
             font-size: 11px;
         }
 
+
+
+        /* =========================================
+           LEGEND
+        ========================================= */
+
         .map-legend {
+
             display: flex;
-            gap: 15px;
+
             align-items: center;
+
+            gap: 15px;
+
             flex-wrap: wrap;
         }
 
+
+
         .legend-item {
+
             display: flex;
+
             align-items: center;
+
             gap: 6px;
-            color: #64748b;
+
+            color: #746970;
+
             font-size: 11px;
         }
 
+
+
         .legend-dot {
+
             width: 9px;
+
             height: 9px;
+
             border-radius: 50%;
         }
 
+
+
         .legend-approved {
+
             background-color: #28a745;
         }
 
+
+
         .legend-submitted {
+
             background-color: #ffc107;
         }
 
+
+
         .legend-rejected {
+
             background-color: #dc3545;
         }
 
 
-        /*
-         * PETA MEMAKAI RUANG LAYAR YANG TERSISA
-         */
+
+        /* =========================================
+           MAP
+        ========================================= */
 
         #map {
+
             width: 100%;
-            height: calc(100vh - 350px);
+
+            height:
+                calc(100vh - 350px);
+
             min-height: 500px;
         }
 
 
+
         /* =========================================
-           POPUP
+           LEAFLET POPUP
         ========================================= */
 
-        .popup-title {
-            margin: 0 0 12px;
-            padding-bottom: 9px;
-            border-bottom: 1px solid #e5edf2;
-            color: #075985;
-            font-size: 16px;
+        .leaflet-popup-content-wrapper {
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 5px 18px
+                rgba(126, 72, 91, 0.15);
         }
 
-        .popup-row {
-            margin-bottom: 9px;
-            font-size: 12px;
+
+
+        .leaflet-popup-content {
+
+            margin: 14px;
+
             line-height: 1.5;
         }
 
+
+
+        .popup-title {
+
+            margin:
+                0 0 12px;
+
+            padding-bottom: 9px;
+
+            border-bottom:
+                1px solid #f0dfe5;
+
+            color: #a95472;
+
+            font-size: 16px;
+        }
+
+
+
+        .popup-row {
+
+            margin-bottom: 9px;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
+
+        .popup-row:last-child {
+
+            margin-bottom: 0;
+        }
+
+
+
         .popup-label {
+
             display: block;
+
             margin-bottom: 2px;
-            color: #718096;
+
+            color: #81767c;
+
             font-size: 11px;
         }
 
+
+
         .popup-value {
-            color: #334155;
+
+            color: #40393d;
+
             font-weight: 500;
+
             word-break: break-word;
         }
 
+
+
         .popup-status {
+
             display: inline-block;
-            padding: 4px 8px;
+
+            padding:
+                4px 8px;
+
             border-radius: 12px;
+
             font-size: 10px;
+
             font-weight: bold;
         }
 
+
+
         .status-approved {
+
             background-color: #28a745;
+
             color: white;
         }
+
+
 
         .status-submitted {
+
             background-color: #ffc107;
-            color: #172033;
+
+            color: #40393d;
         }
+
+
 
         .status-rejected {
+
             background-color: #dc3545;
+
             color: white;
         }
 
+
+
         .status-other {
+
             background-color: #6c757d;
+
             color: white;
         }
+
 
 
         /* =========================================
@@ -510,141 +1022,234 @@
         ========================================= */
 
         .map-info {
-            padding: 13px 15px;
-            background-color: white;
+
+            padding:
+                13px 15px;
+
+            background: white;
+
+            border:
+                1px solid #eee5e9;
+
             border-radius: 10px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-            color: #475569;
+
+            box-shadow:
+                0 4px 14px
+                rgba(126, 72, 91, 0.12);
+
+            color: #746970;
+
             font-size: 12px;
+
             line-height: 1.7;
-            min-width: 155px;
+
+            min-width: 165px;
         }
 
+
+
         .map-info-title {
+
             margin-bottom: 7px;
-            color: #172033;
+
+            color: #a95472;
+
             font-size: 14px;
+
             font-weight: bold;
         }
 
+
+
         .map-info-row {
+
             display: flex;
+
             justify-content: space-between;
+
             gap: 20px;
         }
+
+
+
+        .map-info-row strong {
+
+            color: #40393d;
+        }
+
 
 
         /* =========================================
            RESPONSIVE
         ========================================= */
 
-        @media (max-width: 1100px) {
-
-            .filter-form {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .filter-actions {
-                grid-column: 1 / -1;
-            }
-
-            #map {
-                height: calc(100vh - 410px);
-            }
-
-        }
-
-
-        @media (max-width: 1000px) {
-
-            .sidebar {
-                width: 220px;
-            }
-
-            .main-content {
-                width: calc(100% - 220px);
-                margin-left: 220px;
-            }
-
-        }
-
-
         @media (max-width: 700px) {
 
             .sidebar {
+
                 position: relative;
+
                 width: 100%;
+
+                height: auto;
+
                 min-height: auto;
+
+                padding: 20px 15px;
+
+                overflow: visible;
             }
+
+
+
+            .sidebar-menu {
+
+                display: grid;
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 5px;
+            }
+
+
+
+            .sidebar-bottom {
+
+                margin-top: 20px;
+            }
+
+
 
             .main-content {
+
                 width: 100%;
+
                 margin-left: 0;
-                padding: 20px;
+
+                padding:
+                    20px;
             }
 
+
+
             .top-bar {
+
                 align-items: flex-start;
+
                 flex-direction: column;
+
                 gap: 12px;
             }
 
+
+
             .filter-form {
+
                 grid-template-columns: 1fr;
             }
 
+
+
             .filter-actions {
+
                 grid-column: auto;
             }
 
+
+
             .map-header {
+
                 align-items: flex-start;
+
                 flex-direction: column;
+
                 gap: 10px;
             }
 
+
+
             #map {
+
                 height: 500px;
             }
 
         }
 
 
-        @media (max-width: 480px) {
+
+        @media (max-width: 430px) {
+
+            .sidebar-menu {
+
+                grid-template-columns: 1fr;
+            }
+
+
 
             .main-content {
-                padding: 15px;
+
+                padding:
+                    15px;
             }
+
+
 
             .welcome-card {
-                padding: 18px 20px;
+
+                padding:
+                    18px 20px;
             }
 
+
+
             .welcome-card h2 {
+
                 font-size: 18px;
             }
 
+
+
             .filter-card {
+
                 padding: 14px;
             }
 
+
+
             .filter-actions {
+
                 flex-direction: column;
             }
 
+
+
             .btn-search,
             .btn-reset {
+
                 width: 100%;
+
                 justify-content: center;
             }
 
+
+
+            .map-legend {
+
+                gap: 10px;
+            }
+
+
+
             #map {
+
                 height: 450px;
             }
 
         }
 
     </style>
+
 </head>
 
 
@@ -656,6 +1261,7 @@
     ========================================= -->
 
     <aside class="sidebar">
+
 
         <div class="sidebar-brand">
 
@@ -675,14 +1281,18 @@
         </div>
 
 
+
         <div class="menu-title">
             Menu Utama
         </div>
 
 
+
         <nav class="sidebar-menu">
 
+
             <a href="{{ route('dashboard') }}">
+
                 <span class="menu-icon">
                     🏠
                 </span>
@@ -690,10 +1300,13 @@
                 <span>
                     Dashboard
                 </span>
+
             </a>
 
 
+
             <a href="{{ route('tagging.index') }}">
+
                 <span class="menu-icon">
                     📋
                 </span>
@@ -701,10 +1314,13 @@
                 <span>
                     Data Tagging
                 </span>
+
             </a>
 
 
+
             <a href="{{ route('tagging.import') }}">
+
                 <span class="menu-icon">
                     📥
                 </span>
@@ -712,8 +1328,12 @@
                 <span>
                     Import CSV
                 </span>
+
             </a>
 
+
+
+            <!-- HALAMAN AKTIF -->
 
             <a
                 href="{{ route('tagging.map') }}"
@@ -729,6 +1349,7 @@
                 </span>
 
             </a>
+
 
 
             @if(auth()->user()->role === 'admin')
@@ -747,22 +1368,44 @@
 
             @endif
 
+
+
+            <a href="{{ route('account.settings') }}">
+
+                <span class="menu-icon">
+                    ⚙️
+                </span>
+
+                <span>
+                    Pengaturan Akun
+                </span>
+
+            </a>
+
+
         </nav>
+
 
 
         <div class="sidebar-bottom">
 
+
             <div class="user-mini">
 
                 <div class="user-mini-name">
+
                     {{ auth()->user()->name }}
+
                 </div>
 
                 <div class="user-mini-role">
+
                     {{ ucfirst(auth()->user()->role) }}
+
                 </div>
 
             </div>
+
 
 
             <form
@@ -789,7 +1432,9 @@
 
             </form>
 
+
         </div>
+
 
     </aside>
 
@@ -802,9 +1447,8 @@
     <main class="main-content">
 
 
-        <!-- HEADER -->
-
         <div class="top-bar">
+
 
             <div class="page-title">
 
@@ -819,6 +1463,7 @@
             </div>
 
 
+
             <div class="system-badge">
 
                 <span>
@@ -829,11 +1474,10 @@
 
             </div>
 
+
         </div>
 
 
-
-        <!-- WELCOME -->
 
         <div class="welcome-card">
 
@@ -850,9 +1494,8 @@
 
 
 
-        <!-- FILTER -->
-
         <div class="filter-card">
+
 
             <form
                 action="{{ route('tagging.map') }}"
@@ -860,7 +1503,6 @@
                 class="filter-form"
             >
 
-                <!-- Search -->
 
                 <div class="form-group">
 
@@ -879,7 +1521,6 @@
                 </div>
 
 
-                <!-- Kecamatan -->
 
                 <div class="form-group">
 
@@ -896,32 +1537,39 @@
                             Semua Kecamatan
                         </option>
 
+
                         @foreach($kecamatans as $kecamatan)
 
                             <option
                                 value="{{ $kecamatan->kode_wilayah }}"
                                 {{ request('kecamatan') == $kecamatan->kode_wilayah ? 'selected' : '' }}
                             >
+
                                 {{ $kecamatan->nama_wilayah }}
+
                             </option>
 
                         @endforeach
+
 
                     </select>
 
                 </div>
 
 
-                <!-- Buttons -->
 
                 <div class="filter-actions">
+
 
                     <button
                         type="submit"
                         class="btn-search"
                     >
+
                         🔎 Cari
+
                     </button>
+
 
 
                     @if(request('search') || request('kecamatan'))
@@ -930,25 +1578,29 @@
                             href="{{ route('tagging.map') }}"
                             class="btn-reset"
                         >
+
                             Reset
+
                         </a>
 
                     @endif
 
+
                 </div>
 
+
             </form>
+
 
         </div>
 
 
 
-        <!-- MAP CARD -->
-
         <div class="map-card">
 
 
             <div class="map-header">
+
 
                 <div class="map-header-left">
 
@@ -963,11 +1615,15 @@
                 </div>
 
 
+
                 <div class="map-legend">
+
 
                     <div class="legend-item">
 
-                        <span class="legend-dot legend-approved"></span>
+                        <span
+                            class="legend-dot legend-approved"
+                        ></span>
 
                         Approved
 
@@ -976,7 +1632,9 @@
 
                     <div class="legend-item">
 
-                        <span class="legend-dot legend-submitted"></span>
+                        <span
+                            class="legend-dot legend-submitted"
+                        ></span>
 
                         Submitted
 
@@ -985,15 +1643,20 @@
 
                     <div class="legend-item">
 
-                        <span class="legend-dot legend-rejected"></span>
+                        <span
+                            class="legend-dot legend-rejected"
+                        ></span>
 
                         Rejected
 
                     </div>
 
+
                 </div>
 
+
             </div>
+
 
 
             <div id="map"></div>
@@ -1006,13 +1669,12 @@
 
 
 
-    <!-- =========================================
-         LEAFLET JS
-    ========================================= -->
+    <!-- Leaflet JS -->
 
     <script
         src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     ></script>
+
 
 
     <script>
@@ -1089,15 +1751,11 @@
 
 
 
-            // Hanya data dengan koordinat valid
-
             if (
                 !isNaN(latitude) &&
                 !isNaN(longitude)
             ) {
 
-
-                // Simpan posisi marker
 
                 markers.push([
                     latitude,
@@ -1200,6 +1858,7 @@
 
                     {
                         icon: markerIcon,
+
                         zIndexOffset: 1000
                     }
 
@@ -1409,6 +2068,7 @@
 
                 `);
 
+
             }
 
         });
@@ -1422,13 +2082,16 @@
         if (markers.length > 0) {
 
             map.fitBounds(
+
                 markers,
+
                 {
                     padding: [
                         40,
                         40
                     ]
                 }
+
             );
 
         }
@@ -1519,8 +2182,6 @@
 
 
 
-            // Mencegah klik panel mengganggu peta
-
             L.DomEvent.disableClickPropagation(div);
 
 
@@ -1538,4 +2199,5 @@
 
 
 </body>
+
 </html>

@@ -48,299 +48,285 @@
         }
 
 
-        /* =====================================================
-           SIDEBAR
-        ===================================================== */
+        /* =========================================================
+   SIDEBAR
+   ========================================================= */
 
-        .sidebar {
+.sidebar {
+    width: 250px;
+    height: 100vh;
 
-            width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
 
-            min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
-            position: fixed;
+    padding: 24px 15px;
 
-            left: 0;
-            top: 0;
-            bottom: 0;
+    background: linear-gradient(
+        180deg,
+        #efb6c8 0%,
+        #e5a5bb 55%,
+        #d98fa8 100%
+    );
 
-            display: flex;
+    color: white;
 
-            flex-direction: column;
+    box-shadow: 4px 0 18px rgba(126, 72, 91, 0.10);
 
-            padding: 24px 15px;
+    z-index: 1000;
 
-            background:
-                linear-gradient(
-                    180deg,
-                    #efb6c8 0%,
-                    #e5a5bb 55%,
-                    #d98fa8 100%
-                );
+    overflow: hidden;
+}
 
-            color: white;
 
-            box-shadow:
-                4px 0 18px
-                rgba(126, 72, 91, 0.10);
+/* =========================================================
+   SIDEBAR BRAND
+   ========================================================= */
 
-            z-index: 1000;
+.sidebar-brand {
+    text-align: center;
+    margin-bottom: 25px;
+    flex-shrink: 0;
+}
 
-        }
+.brand-icon {
+    width: 52px;
+    height: 52px;
 
+    margin: 0 auto 10px;
 
-        .sidebar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            padding:
-                5px 12px 25px;
+    background: rgba(255, 255, 255, 0.22);
 
-            margin-bottom: 22px;
+    border-radius: 14px;
 
-            border-bottom:
-                1px solid
-                rgba(255,255,255,0.30);
+    font-size: 25px;
 
-        }
+    box-shadow: 0 4px 12px rgba(126, 72, 91, 0.08);
+}
 
+.sidebar-brand h2 {
+    margin: 0;
 
-        .brand-icon {
+    font-size: 16px;
+    font-weight: 700;
 
-            width: 46px;
-            height: 46px;
+    letter-spacing: 0.5px;
+}
 
-            display: flex;
+.sidebar-brand p {
+    margin: 5px 0 0;
 
-            align-items: center;
-            justify-content: center;
+    font-size: 11px;
+    line-height: 1.5;
 
-            margin-bottom: 12px;
+    opacity: 0.9;
+}
 
-            border-radius: 12px;
 
-            background:
-                rgba(255,255,255,0.20);
+/* =========================================================
+   MENU TITLE
+   ========================================================= */
 
-            font-size: 23px;
+.menu-title {
+    margin-bottom: 10px;
+    padding-left: 8px;
 
-        }
+    font-size: 10px;
+    font-weight: 700;
 
+    text-transform: uppercase;
+    letter-spacing: 1px;
 
-        .sidebar-brand h2 {
+    opacity: 0.75;
 
-            margin:
-                0 0 5px;
+    flex-shrink: 0;
+}
 
-            font-size: 17px;
 
-            letter-spacing:
-                0.4px;
+/* =========================================================
+   SIDEBAR MENU
+   ========================================================= */
 
-        }
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
 
+    gap: 5px;
 
-        .sidebar-brand p {
+    flex-shrink: 0;
+}
 
-            margin: 0;
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
 
-            color:
-                #fff3f7;
+    gap: 12px;
 
-            font-size: 11px;
+    padding: 11px 13px;
 
-            line-height: 1.5;
+    border-radius: 9px;
 
-        }
+    color: white;
+    text-decoration: none;
 
+    font-size: 14px;
 
-        .menu-title {
+    transition: 0.2s;
+}
 
-            padding:
-                0 12px;
+.sidebar-menu a:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
 
-            margin-bottom: 9px;
+.sidebar-menu a.active {
+    background: rgba(255, 255, 255, 0.25);
 
-            color:
-                #fff0f5;
+    box-shadow:
+        0 4px 10px rgba(126, 72, 91, 0.08);
+}
 
-            font-size: 10px;
+.menu-icon {
+    width: 22px;
 
-            font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            letter-spacing:
-                1px;
+    font-size: 16px;
 
-            text-transform:
-                uppercase;
+    flex-shrink: 0;
+}
 
-        }
 
+/* =========================================================
+   BAGIAN BAWAH SIDEBAR
+   ========================================================= */
 
-        .sidebar-menu {
+.sidebar-bottom {
+    margin-top: auto;
 
-            display: flex;
+    flex-shrink: 0;
+}
 
-            flex-direction: column;
 
-            gap: 5px;
+/* =========================================================
+   USER MINI
+   ========================================================= */
 
-        }
+.user-mini {
+    padding: 12px 13px;
 
+    margin-bottom: 8px;
 
-        .sidebar-menu a {
+    background: rgba(255, 255, 255, 0.12);
 
-            display: flex;
+    border-radius: 9px;
+}
 
-            align-items: center;
+.user-mini-name {
+    font-size: 13px;
+    font-weight: 600;
 
-            gap: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-            padding:
-                12px 13px;
+.user-mini-role {
+    margin-top: 3px;
 
-            color:
-                #fff8fa;
+    font-size: 11px;
 
-            text-decoration: none;
+    opacity: 0.8;
+}
 
-            border-radius: 9px;
 
-            font-size: 14px;
+/* =========================================================
+   LOGOUT BUTTON
+   ========================================================= */
 
-            transition:
-                all 0.2s ease;
+.logout-button {
+    width: 100%;
 
-        }
+    display: flex;
+    align-items: center;
 
+    gap: 12px;
 
-        .sidebar-menu a:hover {
+    padding: 11px 13px;
 
-            background:
-                rgba(255,255,255,0.16);
+    border: none;
+    border-radius: 9px;
 
-            color: white;
+    background: rgba(255, 255, 255, 0.12);
 
-            transform:
-                translateX(2px);
+    color: white;
 
-        }
+    cursor: pointer;
 
+    font-size: 14px;
 
-        .sidebar-menu a.active {
+    text-align: left;
 
-            background: white;
+    transition: 0.2s;
+}
 
-            color:
-                #d586a0;
+.logout-button:hover {
+    background: #c96f89;
+}
 
-            font-weight: bold;
 
-            box-shadow:
-                0 4px 12px
-                rgba(126,66,88,0.10);
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
-        }
+@media (max-width: 700px) {
 
+    .sidebar {
+        position: relative;
 
-        .menu-icon {
+        width: 100%;
+        height: auto;
+        min-height: auto;
 
-            width: 23px;
+        padding: 20px 15px;
 
-            text-align: center;
+        overflow: visible;
+    }
 
-            font-size: 17px;
+    .sidebar-menu {
+        display: grid;
 
-            flex-shrink: 0;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
-        }
+        gap: 5px;
+    }
 
+    .sidebar-bottom {
+        margin-top: 20px;
+    }
+}
 
-        .sidebar-bottom {
 
-            margin-top: auto;
+/* =========================================================
+   MOBILE KECIL
+   ========================================================= */
 
-        }
+@media (max-width: 430px) {
 
-
-        .user-mini {
-
-            padding: 13px;
-
-            margin-bottom: 10px;
-
-            border-radius: 10px;
-
-            background:
-                rgba(255,255,255,0.15);
-
-        }
-
-
-        .user-mini-name {
-
-            font-size: 13px;
-
-            font-weight: bold;
-
-            white-space: nowrap;
-
-            overflow: hidden;
-
-            text-overflow: ellipsis;
-
-        }
-
-
-        .user-mini-role {
-
-            margin-top: 4px;
-
-            color:
-                #fff1f5;
-
-            font-size: 11px;
-
-        }
-
-
-        .logout-button {
-
-            width: 100%;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            padding:
-                11px 13px;
-
-            border: none;
-
-            border-radius: 9px;
-
-            background:
-                rgba(255,255,255,0.12);
-
-            color: white;
-
-            cursor: pointer;
-
-            font-size: 14px;
-
-            text-align: left;
-
-            transition: 0.2s;
-
-        }
-
-
-        .logout-button:hover {
-
-            background:
-                #c96f89;
-
-        }
+    .sidebar-menu {
+        grid-template-columns: 1fr;
+    }
+}
 
 
         /* =====================================================
@@ -2072,6 +2058,20 @@
                 </a>
 
             @endif
+
+            <a
+                href="{{ route('account.settings') }}"
+            >
+
+                <span class="menu-icon">
+                    ⚙️
+                </span>
+
+                <span>
+                    Pengaturan Akun
+                </span>
+
+            </a>
 
 
         </nav>
