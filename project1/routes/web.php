@@ -1,21 +1,17 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\TaggingController;
 use App\Http\Controllers\TaggingImportController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
 
-/*
-Route::get('/', function () {
-    return redirect()->route('mahasiswa.index');
-});
-
-Route::resource('mahasiswa', MahasiswaController::class)
-    ->except(['show']);
-*/
+// ==========================================
+// LOGIN DAN LOGOUT
+// ==========================================
 
 Route::get('/login', [LoginController::class, 'showLogin'])
     ->name('login');
@@ -26,41 +22,82 @@ Route::post('/login', [LoginController::class, 'login'])
 Route::post('/logout', [LoginController::class, 'logout'])
     ->name('logout');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->name('dashboard')
-    ->middleware(['auth', 'role:admin,operator']);
-
+// HALAMAN UTAMA
 Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Route::get('/tagging/map', [TaggingController::class, 'map'])
-    ->name('tagging.map')
-    ->middleware(['auth', 'role:admin,operator']);
+// ==========================================
+// HALAMAN ADMIN DAN OPERATOR
+// ==========================================
 
-Route::resource('tagging', TaggingController::class)
-    ->only(['index'])
-    ->middleware(['auth', 'role:admin,operator']);
+Route::middleware(['auth', 'role:admin,operator'])->group(function () {
 
-Route::resource('tagging', TaggingController::class)
-    ->only(['create', 'store', 'edit', 'update', 'destroy'])
-    ->middleware(['auth', 'role:admin']);
+    // DASHBOARD
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard');
 
-Route::get('/tagging/import', [TaggingImportController::class, 'index'])
-    ->name('tagging.import')
-    ->middleware(['auth', 'role:admin,operator']);
+    // PENGATURAN AKUN
+    Route::get('/user/settings', [AccountController::class, 'settings'])
+        ->name('user.settings');
 
-Route::post('/tagging/import', [TaggingImportController::class, 'import'])
-    ->name('tagging.import.process')
-    ->middleware(['auth', 'role:admin,operator']);
+    Route::put('/user/settings', [AccountController::class, 'update'])
+        ->name('user.settings.update');
 
-// Pengaturan akun
-Route::middleware('auth')->group(function () {
+    // DATA TAGGING
+    Route::get('/tagging', [TaggingController::class, 'index'])
+        ->name('tagging.index');
 
-    Route::get('/account/settings', [AccountController::class, 'settings'])
-        ->name('account.settings');
+    // PETA TAGGING
+    Route::get('/tagging/map', [TaggingController::class, 'map'])
+        ->name('tagging.map');
 
-    Route::put('/account/settings', [AccountController::class, 'update'])
-        ->name('account.update');
+    // EXPORT DATA
+    Route::get('/tagging/export', [TaggingController::class, 'export'])
+        ->name('tagging.export');
+});
 
+// ==========================================
+// KHUSUS ADMIN
+// ==========================================
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+
+    // TAMBAH DATA TAGGING
+    Route::get('/tagging/create', [TaggingController::class, 'create'])
+        ->name('tagging.create');
+
+    Route::post('/tagging', [TaggingController::class, 'store'])
+        ->name('tagging.store');
+
+    // EDIT DATA TAGGING
+    Route::get('/tagging/{tagging}/edit', [TaggingController::class, 'edit'])
+        ->name('tagging.edit');
+
+    Route::put('/tagging/{tagging}', [TaggingController::class, 'update'])
+        ->name('tagging.update');
+
+    Route::patch('/tagging/{tagging}', [TaggingController::class, 'update']);
+
+    // HAPUS DATA TAGGING
+    Route::delete('/tagging/{tagging}', [TaggingController::class, 'destroy'])
+        ->name('tagging.destroy');
+
+    // IMPORT DATA TAGGING
+    Route::get('/tagging/import', [TaggingImportController::class, 'index'])
+        ->name('tagging.import');
+
+    Route::post('/tagging/import', [TaggingImportController::class, 'import'])
+        ->name('tagging.import.process');
+
+    // MANAJEMEN USER
+    Route::resource('user', UserController::class)
+        ->except(['show']);
+
+    // RESET PASSWORD USER
+    Route::get('/user/{id}/reset-pw', [UserController::class, 'resetPasswordForm'])
+        ->name('user.reset-pw');
+
+    Route::post('/user/{id}/reset-pw', [UserController::class, 'resetPassword'])
+        ->name('user.reset-pw.process');
 });

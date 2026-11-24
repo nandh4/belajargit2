@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tagging;
+use App\Models\User;
 use App\Models\Wilayah;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -14,6 +16,7 @@ class DashboardController extends Controller
         // =====================================================
 
         $totalData = Tagging::count();
+        $totalUser = User::count();
 
         $withLocation = Tagging::whereNotNull('geotag_latitude')
             ->whereNotNull('geotag_longitude')
@@ -122,8 +125,19 @@ class DashboardController extends Controller
         // DATA TERAKHIR DIPERBARUI
         // =====================================================
 
-        $lastUpdated = Tagging::latest('updated_at')
-            ->value('updated_at');
+       // DATA TERAKHIR DIPERBARUI
+// Mengambil aktivitas tambah, edit, atau hapus terakhir
+
+$lastUpdatedTagging = DB::table('tagging_activities')
+    ->max('created_at');
+
+$lastUpdatedUser = DB::table('user_activities')
+    ->max('created_at');
+
+$lastUpdated = collect([
+    $lastUpdatedTagging,
+    $lastUpdatedUser
+])->filter()->max();
 
 
         // =====================================================
@@ -133,6 +147,7 @@ class DashboardController extends Controller
         return view('dashboard', compact(
 
             'totalData',
+            'totalUser',
             'withLocation',
             'withoutLocation',
 

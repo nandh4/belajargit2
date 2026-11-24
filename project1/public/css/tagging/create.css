@@ -1,0 +1,766 @@
+
+/* =========================================
+   FORM CONTAINER
+========================================= */
+
+.create-form-container {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(20, 45, 80, 0.07);
+    border: 1px solid #edf0f5;
+    margin-bottom: 30px;
+    transition: box-shadow .3s ease;
+}
+
+.create-form-container:hover {
+    box-shadow: 0 8px 25px rgba(20, 45, 80, .10);
+}
+
+/* =========================================
+   FORM HEADER
+========================================= */
+
+.create-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.create-form-title {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+}
+
+.create-form-title-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #eaf1fb;
+    color: #24558a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    flex-shrink: 0;
+    transition: transform .35s ease, background .35s ease;
+}
+
+.create-form-title-icon:hover {
+    transform: rotate(-10deg) scale(1.1);
+    background: #dce9f8;
+}
+
+.create-form-title h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #17365d;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.create-form-title p {
+    color: #8491a5;
+    font-size: 13px;
+    margin: 5px 0 0;
+    line-height: 1.6;
+}
+
+.required-info {
+    font-size: 12px;
+    color: #7c8798;
+    flex-shrink: 0;
+}
+
+.required {
+    color: #e05252;
+}
+
+/* =========================================
+   ERROR VALIDATION
+========================================= */
+
+.create-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff0f0;
+    border: 1px solid #f5c6cb;
+    color: #b42332;
+    border-radius: 10px;
+    padding: 15px 18px;
+    margin-bottom: 22px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.create-error-icon {
+    flex-shrink: 0;
+    font-size: 17px;
+    margin-top: 1px;
+}
+
+.create-error ul {
+    padding-left: 20px;
+    margin: 8px 0 0;
+}
+
+/* =========================================
+   FORM SECTION
+========================================= */
+
+.data-section {
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 23px;
+    border: 1px solid #edf0f5;
+    border-radius: 14px;
+    margin-bottom: 22px;
+    background: #ffffff;
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
+}
+
+.data-section:hover {
+    border-color: #c5d8e9;
+    box-shadow: 0 5px 16px rgba(23, 54, 93, .06);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   FORM SECTION HEADING
+========================================= */
+
+.form-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    min-width: 0;
+}
+
+.form-section-heading h4 {
+    color: #17365d;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.form-section-heading p {
+    color: #8491a5;
+    font-size: 12px;
+    margin: 4px 0 0;
+    line-height: 1.5;
+}
+
+.form-section-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: #eaf1fb;
+    color: #24558a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.data-section:hover .form-section-number {
+    transform: rotate(-7deg) scale(1.1);
+    box-shadow: 0 5px 12px rgba(23, 54, 93, .16);
+}
+
+/* =========================================
+   FORM GRID
+========================================= */
+
+.create-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+}
+
+.create-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.create-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.create-form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #34445c;
+    line-height: 1.5;
+}
+
+.create-form-group input,
+.create-form-group select {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #dce3ed;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #34445c;
+    font-size: 13px;
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease,
+        background .25s ease;
+}
+
+.create-form-group input:focus,
+.create-form-group select:focus {
+    border-color: #4b78ad;
+    box-shadow: 0 0 0 3px rgba(75, 120, 173, 0.10);
+    transform: translateY(-2px);
+}
+
+.create-form-group input:hover,
+.create-form-group select:hover {
+    transform: translateY(-2px);
+    border-color: #b8cde1;
+}
+
+.create-form-group input::placeholder {
+    color: #a5afbd;
+    opacity: 1;
+}
+
+.field-error {
+    color: #d64545;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.input-help {
+    font-size: 11px;
+    color: #8a96a8;
+    line-height: 1.5;
+}
+
+.create-form-group input.is-invalid,
+.create-form-group select.is-invalid {
+    border-color: #e05252 !important;
+    background: #fffafa !important;
+}
+
+/* =========================================
+   STATUS NOTE
+========================================= */
+
+.form-status-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    background: #f1f6fc;
+    border-radius: 10px;
+    color: #526b8b;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 18px;
+    transition:
+        background .3s ease,
+        transform .3s ease;
+}
+
+.form-status-note:hover {
+    background: #e8f1fb;
+    transform: translateX(4px);
+}
+
+.form-status-note i {
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   FORM BUTTONS
+========================================= */
+
+.create-buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid #edf0f5;
+}
+
+.create-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 20px;
+    border-radius: 9px;
+    border: none;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.create-back {
+    background: #edf0f4;
+    color: #596579;
+}
+
+.create-back:hover {
+    background: #dfe4eb;
+    color: #34445c;
+}
+
+.create-save {
+    background: #24558a;
+    color: #ffffff;
+}
+
+.create-save:hover {
+    background: #173f70;
+    box-shadow: 0 6px 15px rgba(36, 85, 138, .22);
+}
+
+.create-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(23, 54, 93, .13);
+}
+
+.create-button:active {
+    transform: scale(.97);
+}
+
+.create-button:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* =========================================
+   ANIMASI HALAMAN CREATE
+========================================= */
+
+@keyframes createFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes createFadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes createFieldIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.create-form-container {
+    animation: createFadeUp .7s ease both;
+}
+
+.create-form-header {
+    animation: createFadeLeft .65s ease .1s both;
+}
+
+.data-section {
+    opacity: 0;
+    animation: createFadeUp .65s ease forwards;
+}
+
+.data-section:nth-of-type(1) {
+    animation-delay: .15s;
+}
+
+.data-section:nth-of-type(2) {
+    animation-delay: .3s;
+}
+
+.data-section:nth-of-type(3) {
+    animation-delay: .45s;
+}
+
+.create-form-group {
+    animation: createFieldIn .5s ease both;
+}
+
+.create-form-group:nth-child(1) {
+    animation-delay: .15s;
+}
+
+.create-form-group:nth-child(2) {
+    animation-delay: .22s;
+}
+
+.create-form-group:nth-child(3) {
+    animation-delay: .29s;
+}
+
+.create-form-group:nth-child(4) {
+    animation-delay: .36s;
+}
+
+.create-buttons {
+    animation: createFadeUp .6s ease .6s both;
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+    .create-form-container {
+        padding: 24px;
+    }
+
+    .data-section {
+        padding: 20px;
+    }
+
+    .create-form-grid {
+        gap: 17px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    /* TOPBAR DAN PROFIL */
+
+    .top-bar {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .header-right {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end !important;
+        align-items: center;
+        margin-left: auto;
+        min-width: 0;
+    }
+
+    .user-profile-wrapper {
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    /* FORM CONTAINER */
+
+    .create-form-container {
+        width: 100%;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .create-form-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+        padding-bottom: 17px;
+    }
+
+    .create-form-title {
+        width: 100%;
+        align-items: flex-start;
+        gap: 11px;
+    }
+
+    .create-form-title-icon {
+        width: 43px;
+        height: 43px;
+        font-size: 17px;
+        border-radius: 12px;
+    }
+
+    .create-form-title h3 {
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    .create-form-title p {
+        font-size: 12px;
+    }
+
+    .required-info {
+        align-self: flex-start;
+    }
+
+    /* ERROR */
+
+    .create-error {
+        padding: 13px;
+        font-size: 12px;
+    }
+
+    /* SECTION */
+
+    .data-section {
+        padding: 17px;
+        margin-bottom: 17px;
+    }
+
+    .form-section-heading {
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .form-section-heading h4 {
+        font-size: 14px;
+    }
+
+    .form-section-heading p {
+        font-size: 11px;
+    }
+
+    .form-section-number {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    /* FORM GRID */
+
+    .create-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 17px;
+    }
+
+    .create-form-group,
+    .create-form-group.full-width {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .create-form-group label {
+        font-size: 12px;
+    }
+
+    .create-form-group input,
+    .create-form-group select {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    /* CATATAN KOORDINAT */
+
+    .form-status-note {
+        padding: 12px;
+        font-size: 11px;
+        gap: 8px;
+    }
+
+    /* BUTTON */
+
+    .create-buttons {
+        flex-direction: column-reverse;
+        gap: 10px;
+        margin-top: 20px;
+        padding-top: 16px;
+    }
+
+    .create-button {
+        width: 100%;
+        min-height: 43px;
+        box-sizing: border-box;
+        padding: 12px 15px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE HP KECIL
+========================================= */
+
+@media (max-width: 480px) {
+
+    .create-form-container {
+        padding: 16px;
+        border-radius: 13px;
+    }
+
+    .create-form-title h3 {
+        font-size: 16px;
+    }
+
+    .create-form-title-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .data-section {
+        padding: 15px;
+    }
+
+    .form-section-heading h4 {
+        font-size: 13px;
+    }
+
+    .create-form-grid {
+        gap: 15px;
+    }
+
+    .create-form-group input,
+    .create-form-group select {
+        padding: 11px;
+        font-size: 12px;
+    }
+
+    .form-status-note {
+        font-size: 11px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE HP SANGAT KECIL
+========================================= */
+
+@media (max-width: 380px) {
+
+    .create-form-container {
+        padding: 13px;
+    }
+
+    .create-form-title h3 {
+        font-size: 15px;
+    }
+
+    .create-form-title p {
+        font-size: 11px;
+    }
+
+    .create-form-title-icon {
+        width: 37px;
+        height: 37px;
+        font-size: 15px;
+    }
+
+    .data-section {
+        padding: 12px;
+    }
+
+    .form-section-heading h4 {
+        font-size: 12px;
+    }
+
+    .form-section-heading p {
+        font-size: 10px;
+    }
+
+    .form-section-number {
+        width: 27px;
+        height: 27px;
+        font-size: 11px;
+    }
+
+    .create-form-group input,
+    .create-form-group select {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .create-button {
+        font-size: 12px;
+        padding: 11px;
+    }
+
+    .form-status-note {
+        padding: 10px;
+        font-size: 10px;
+    }
+}
+
+/* =========================================
+   AKSESIBILITAS ANIMASI
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .create-form-container,
+    .create-form-header,
+    .data-section,
+    .create-form-group,
+    .create-buttons {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .data-section,
+    .form-section-number,
+    .create-form-title-icon,
+    .create-form-group input,
+    .create-form-group select,
+    .create-button,
+    .form-status-note {
+        transition: none !important;
+    }
+}

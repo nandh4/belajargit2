@@ -4,86 +4,109 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class AccountController extends Controller
 {
-    // Menampilkan halaman pengaturan akun
-    public function settings()
-    {
-        // Mengambil data user yang sedang login
-        $user = auth()->user();
 
-        return view('account.settings', compact('user'));
+ private function recordActivity($user, $activity, $description)
+    {
+        DB::table('user_activities')->insert([
+            'user_id' => $user->id,
+            'activity' => $activity,
+            'description' => $description,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 
-    // Menyimpan perubahan akun
+    /**
+     * Menampilkan halaman pengaturan akun.
+     */
+    public function settings()
+    {
+        $user = auth()->user();
+        $recordLastUpdated = $user->updated_at ?? $user->created_at;
+
+        return view('user.settings', compact('user', 'recordLastUpdated'));
+    }
+
+    /**
+     * Memperbarui pengaturan akun pengguna yang sedang login.
+     */
     public function update(Request $request)
     {
-        // Mengambil user yang sedang login
         $user = auth()->user();
 
-        // Validasi data nama dan username
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:users,username,' . $user->id,
+        $validated = $request->validate([
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+            ],
 
-            // Password lama hanya wajib jika ingin mengganti password
-            'current_password' => 'nullable|string',
+            'username' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('users', 'username')->ignore($user->id),
+            ],
 
-            // Password baru minimal 8 karakter
-            'password' => 'nullable|string|min:8|confirmed',
+            'current_password' => [
+                'required_with:password',
+                'nullable',
+                'string',
+            ],
+
+            'password' => [
+                'nullable',
+                'string',
+                'min:8',
+                'confirmed',
+            ],
+
         ], [
             'name.required' => 'Nama lengkap wajib diisi.',
+
             'username.required' => 'Username wajib diisi.',
-            'username.unique' => 'Username tersebut sudah digunakan.',
+            'username.unique' => 'Username sudah digunakan.',
+
+            'current_password.required_with' => 'Password lama wajib diisi jika ingin mengganti password.',
 
             'password.min' => 'Password baru minimal 8 karakter.',
-            'password.confirmed' => 'Konfirmasi password tidak cocok.',
+            'password.confirmed' => 'Konfirmasi password baru tidak sesuai.',
         ]);
 
-        // Memperbarui nama
-        $user->name = $request->name;
+        // Memeriksa password lama jika pengguna ingin mengganti password.
+        if (!empty($validated['password'])) {
 
-        // Memperbarui username
-        $user->username = $request->username;
-
-        /*
-        |--------------------------------------------------------------------------
-        | Mengubah Password
-        |--------------------------------------------------------------------------
-        */
-
-        // Jika password baru diisi
-        if ($request->filled('password')) {
-
-            // Password lama wajib diisi
-            if (!$request->filled('current_password')) {
-                return back()
-                    ->withErrors([
-                        'current_password' => 'Password saat ini wajib diisi.'
-                    ])
-                    ->withInput();
-            }
-
-            // Memeriksa apakah password lama benar
             if (!Hash::check($request->current_password, $user->password)) {
                 return back()
                     ->withErrors([
-                        'current_password' => 'Password saat ini tidak sesuai.'
+                        'current_password' => 'Password lama tidak sesuai.',
                     ])
                     ->withInput();
             }
 
-            // Mengenkripsi password baru
-            $user->password = Hash::make($request->password);
+            // Mengamankan password baru dengan hash.
+            $user->password = Hash::make($validated['password']);
         }
 
-        // Menyimpan perubahan
+        // Memperbarui nama dan username.
+        $user->name = $validated['name'];
+        $user->username = $validated['username'];
+
         $user->save();
 
-        // Kembali ke halaman pengaturan
+        $this->recordActivity(
+        $user,
+        'updated',
+        'Pengaturan akun diperbarui'
+    );
+
         return redirect()
-            ->route('account.settings')
+            ->route('user.settings.update')
             ->with('success', 'Pengaturan akun berhasil diperbarui.');
     }
 }
