@@ -525,6 +525,7 @@ body {
 
     border-radius: 50%;
     background: rgba(255,255,255,.06);
+    border: 3px solid rgba(255, 255, 255, .08);
 
     animation: floating 6s ease-in-out infinite;
 }

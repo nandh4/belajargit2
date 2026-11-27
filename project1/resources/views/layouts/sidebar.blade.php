@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="{{ asset('css/layout/sidebar.css') }}">
 
 {{-- TOMBOL HAMBURGER MOBILE --}}
@@ -12,10 +13,16 @@
     <i class="fas fa-bars"></i>
 </button>
 
+{{-- SIDEBAR --}}
 <aside class="sidebar" id="sidebar">
 
-    <div class="sidebar-decoration sidebar-decoration-one"></div>
-    <div class="sidebar-decoration sidebar-decoration-two"></div>
+
+{{-- DEKORASI SIDEBAR --}}
+<div class="sidebar-decoration sidebar-decoration-one"></div>
+<div class="sidebar-decoration sidebar-decoration-two"></div>
+<div class="sidebar-decoration sidebar-decoration-three"></div>
+<div class="sidebar-decoration sidebar-decoration-four"></div>
+<div class="sidebar-decoration sidebar-decoration-five"></div>
 
     {{-- HEADER SIDEBAR --}}
     <div class="sidebar-header">
@@ -28,7 +35,7 @@
             aria-label="Tutup Sidebar"
             aria-expanded="true"
         >
-            <i class="fas fa-times"></i>
+            <i class="fas fa-bars"></i>
         </button>
 
         {{-- LOGO DAN IDENTITAS APLIKASI --}}
@@ -54,7 +61,6 @@
             </div>
 
         </div>
-
     </div>
 
     {{-- JUDUL MENU --}}
@@ -65,58 +71,58 @@
     {{-- MENU SIDEBAR --}}
     <nav class="sidebar-menu">
 
-        <a href="{{ route('dashboard') }}"
-           class="{{ request()->routeIs('dashboard') ? 'active' : '' }}"
-           title="Dashboard">
-
+        <a
+            href="{{ route('dashboard') }}"
+            class="{{ request()->routeIs('dashboard') ? 'active' : '' }}"
+            title="Dashboard"
+        >
             <span class="menu-icon">
                 <i class="fas fa-home"></i>
             </span>
-
             <span class="menu-text">Dashboard</span>
         </a>
 
-        <a href="{{ route('tagging.index') }}"
-           class="{{ request()->routeIs('tagging.index', 'tagging.create', 'tagging.edit') ? 'active' : '' }}"
-           title="Data Tagging">
-
+        <a
+            href="{{ route('tagging.index') }}"
+            class="{{ request()->routeIs('tagging.index', 'tagging.create', 'tagging.edit') ? 'active' : '' }}"
+            title="Data Tagging"
+        >
             <span class="menu-icon">
                 <i class="fas fa-database"></i>
             </span>
-
             <span class="menu-text">Data Tagging</span>
         </a>
 
-        <a href="{{ route('tagging.map') }}"
-           class="{{ request()->routeIs('tagging.map') ? 'active' : '' }}"
-           title="Lihat Peta">
-
+        <a
+            href="{{ route('tagging.map') }}"
+            class="{{ request()->routeIs('tagging.map') ? 'active' : '' }}"
+            title="Lihat Peta"
+        >
             <span class="menu-icon">
                 <i class="fas fa-map-marked-alt"></i>
             </span>
-
             <span class="menu-text">Lihat Peta</span>
         </a>
 
-        <a href="{{ route('user.index') }}"
-           class="{{ request()->routeIs('user.index', 'user.create', 'user.edit', 'user.reset-pw') ? 'active' : '' }}"
-           title="Kelola User">
-
+        <a
+            href="{{ route('user.index') }}"
+            class="{{ request()->routeIs('user.index', 'user.create', 'user.edit', 'user.reset-pw') ? 'active' : '' }}"
+            title="Kelola User"
+        >
             <span class="menu-icon">
                 <i class="fas fa-user"></i>
             </span>
-
             <span class="menu-text">Kelola Akun User</span>
         </a>
 
-        <a href="{{ route('tagging.import') }}"
-           class="{{ request()->routeIs('tagging.import') ? 'active' : '' }}"
-           title="Import CSV">
-
+        <a
+            href="{{ route('tagging.import') }}"
+            class="{{ request()->routeIs('tagging.import') ? 'active' : '' }}"
+            title="Import CSV"
+        >
             <span class="menu-icon">
                 <i class="fas fa-file-import"></i>
             </span>
-
             <span class="menu-text">Import CSV</span>
         </a>
 
@@ -124,6 +130,7 @@
 
 </aside>
 
+{{-- JAVASCRIPT SIDEBAR --}}
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -131,74 +138,83 @@ document.addEventListener('DOMContentLoaded', function () {
     const desktopToggle = document.getElementById('sidebarToggle');
     const mobileToggle = document.getElementById('mobileSidebarToggle');
 
-    if (!sidebar || !desktopToggle) return;
+    if (!sidebar || !desktopToggle || !mobileToggle) {
+        return;
+    }
 
-    const desktopIcon = desktopToggle.querySelector('i');
-    const mobileIcon = mobileToggle
-        ? mobileToggle.querySelector('i')
-        : null;
+    function isMobile() {
+        return window.matchMedia('(max-width: 700px)').matches;
+    }
 
     function updateSidebar(isClosed) {
 
         document.body.classList.toggle('sidebar-closed', isClosed);
 
-        // Atur tombol sidebar
-        desktopToggle.setAttribute('aria-expanded', String(!isClosed));
+        desktopToggle.setAttribute(
+            'aria-expanded',
+            String(!isClosed)
+        );
+
         desktopToggle.setAttribute(
             'aria-label',
             isClosed ? 'Buka Sidebar' : 'Tutup Sidebar'
         );
+
         desktopToggle.setAttribute(
             'title',
             isClosed ? 'Buka Sidebar' : 'Tutup Sidebar'
         );
 
-        if (desktopIcon) {
-            desktopIcon.classList.toggle('fa-bars', isClosed);
-            desktopIcon.classList.toggle('fa-times', !isClosed);
-        }
+        mobileToggle.setAttribute(
+            'aria-expanded',
+            String(!isClosed)
+        );
 
-        // Atur tombol hamburger mobile
-        if (mobileToggle) {
-            mobileToggle.setAttribute('aria-expanded', String(!isClosed));
-            mobileToggle.setAttribute(
-                'aria-label',
-                isClosed ? 'Buka Sidebar' : 'Tutup Sidebar'
-            );
-        }
+        mobileToggle.setAttribute(
+            'aria-label',
+            isClosed ? 'Buka Sidebar' : 'Tutup Sidebar'
+        );
 
-        if (mobileIcon) {
-            mobileIcon.classList.toggle('fa-bars', isClosed);
-            mobileIcon.classList.toggle('fa-times', !isClosed);
-        }
+        // Ikon selalu hamburger
+        desktopToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
     }
 
-    // Kondisi awal: sidebar terbuka
-    updateSidebar(false);
+    // Kondisi awal
+    updateSidebar(isMobile());
 
-    // Tombol di dalam sidebar
+    // Tombol hamburger di sidebar
     desktopToggle.addEventListener('click', function () {
 
         const isClosed = document.body.classList.contains('sidebar-closed');
 
         updateSidebar(!isClosed);
-
     });
 
-    // Tombol hamburger mobile untuk membuka sidebar
-    if (mobileToggle) {
+    // Tombol hamburger mobile cadangan
+    mobileToggle.addEventListener('click', function () {
 
-        mobileToggle.addEventListener('click', function () {
-            updateSidebar(false);
-        });
+        const isClosed = document.body.classList.contains('sidebar-closed');
 
-    }
+        updateSidebar(!isClosed);
+    });
 
-    // Tombol Escape untuk menutup sidebar
+    // Tutup sidebar dengan Escape
     document.addEventListener('keydown', function (event) {
 
         if (event.key === 'Escape') {
             updateSidebar(true);
+        }
+
+    });
+
+    // Sesuaikan dengan ukuran layar
+    window.addEventListener('resize', function () {
+
+        if (isMobile()) {
+            updateSidebar(true);
+        } else {
+            updateSidebar(false);
         }
 
     });

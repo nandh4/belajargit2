@@ -3,8 +3,9 @@
 
 <footer class="app-footer" id="appFooter">
 
-    <div class="footer-decoration footer-decoration-one"></div>
-
+{{-- DEKORASI FOOTER --}}
+<div class="footer-decoration footer-decoration-one"></div>
+<div class="footer-decoration footer-decoration-two"></div>
     <div class="footer-container">
 
         {{-- FOOTER BRAND --}}
