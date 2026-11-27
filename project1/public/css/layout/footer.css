@@ -1,0 +1,338 @@
+
+/* =========================================
+   FOOTER UTAMA
+========================================= */
+
+.app-footer {
+    position: relative;
+    width: calc(100% - 280px);
+    margin-left: 280px;
+    padding: 23px 34px;
+    min-width: 0;
+    overflow: hidden;
+
+    background: linear-gradient(
+        160deg,
+        #17365D 0%,
+        #244B73 50%,
+        #17365D 100%
+    );
+
+    color: #ffffff;
+    border-top: 3px solid #25866a;
+    z-index: 5;
+
+    transition:
+        width .35s cubic-bezier(.4, 0, .2, 1),
+        margin-left .35s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* =========================================
+   SIDEBAR RESPONSIVE
+========================================= */
+
+body.sidebar-closed .app-footer {
+    width: calc(100% - 76px);
+    margin-left: 76px;
+}
+
+/* =========================================
+   FOOTER CONTAINER
+========================================= */
+
+.footer-container {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 100%;
+    min-width: 0;
+}
+
+/* =========================================
+   FOOTER BRAND
+========================================= */
+
+.footer-brand {
+    display: none;
+}
+
+/* =========================================
+   FOOTER INFORMATION
+========================================= */
+
+.footer-information {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 7px;
+
+    min-width: 0;
+    max-width: 100%;
+
+    text-align: right;
+}
+
+/* =========================================
+   NAMA SISTEM
+========================================= */
+
+.footer-system {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 8px;
+    max-width: 100%;
+
+    color: #e5f0fa;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    line-height: 1.5;
+    text-align: right;
+}
+
+/* =========================================
+   STATUS DOT
+========================================= */
+
+.footer-status-dot {
+    width: 8px;
+    height: 8px;
+
+    flex-shrink: 0;
+    border-radius: 50%;
+
+    background: #69d6a1;
+
+    box-shadow: 0 0 0 4px rgba(105, 214, 161, .12);
+
+    animation: footerStatusPulse 2s ease-in-out infinite;
+}
+
+@keyframes footerStatusPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(105, 214, 161, .12);
+        opacity: 1;
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(105, 214, 161, .02);
+        opacity: .7;
+    }
+}
+
+/* =========================================
+   HAK CIPTA
+========================================= */
+
+.footer-copyright {
+    margin: 0;
+
+    color: #b8cde0;
+
+    font-size: 9px;
+    line-height: 1.6;
+
+    text-align: right;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   DEKORASI FOOTER - 2 LINGKARAN
+========================================= */
+
+.footer-decoration {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
+
+    background: rgba(255, 255, 255, .035);
+    border: 3px solid rgba(255, 255, 255, .08);
+}
+
+/* LINGKARAN 1 */
+
+.footer-decoration-one {
+    width: 180px;
+    height: 180px;
+
+    top: -125px;
+    right: 15%;
+
+    background: rgba(255,255,255,.035);
+    border-color: rgba(255,255,255,.09);
+
+    animation: footerFloatOne 8s ease-in-out infinite;
+}
+
+/* LINGKARAN 2 */
+
+.footer-decoration-two {
+    width: 115px;
+    height: 115px;
+
+    bottom: -75px;
+    left: 18%;
+
+    background: rgba(105,214,161,.045);
+    border-color: rgba(105,214,161,.12);
+
+    animation: footerFloatTwo 10s ease-in-out infinite;
+}
+
+/* =========================================
+   ANIMASI LINGKARAN FOOTER
+========================================= */
+
+@keyframes footerFloatOne {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-15px) scale(1.08);
+    }
+}
+
+@keyframes footerFloatTwo {
+    0%, 100% {
+        transform: translate(0,0) scale(1);
+    }
+
+    50% {
+        transform: translate(18px,-12px) scale(1.12);
+    }
+}
+
+/* =========================================
+   BOTTOM LINE
+========================================= */
+
+.footer-bottom-line {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #69d6a1,
+        #ffffff,
+        #69d6a1,
+        transparent
+    );
+
+    opacity: .35;
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 950px) {
+
+    .app-footer {
+        padding: 20px 25px;
+    }
+
+    .footer-copyright {
+        font-size: 9px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .app-footer {
+        width: calc(100% - 280px);
+        margin-left: 280px;
+
+        padding: 18px 14px;
+    }
+
+    body.sidebar-closed .app-footer {
+        width: calc(100% - 76px);
+        margin-left: 76px;
+    }
+
+    .footer-container {
+        justify-content: flex-end;
+    }
+
+    .footer-information {
+        width: 100%;
+        max-width: 100%;
+
+        align-items: flex-end;
+
+        gap: 6px;
+    }
+
+    .footer-system {
+        font-size: 9px;
+        gap: 7px;
+        flex-wrap: wrap;
+    }
+
+    .footer-status-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .footer-copyright {
+        max-width: 100%;
+
+        font-size: 8px;
+        line-height: 1.6;
+
+        overflow-wrap: anywhere;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .app-footer {
+        padding: 16px 10px;
+    }
+
+    .footer-system {
+        font-size: 8px;
+    }
+
+    .footer-copyright {
+        font-size: 7px;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .app-footer,
+    .app-footer * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

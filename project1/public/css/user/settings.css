@@ -1,0 +1,135 @@
+
+/* =========================================
+   SETTINGS - SECTION ICON
+========================================= */
+
+.form-section-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #eaf1fb;
+    color: #24558a;
+    border-radius: 10px;
+    font-size: 13px;
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.data-section:hover .form-section-icon {
+    transform: rotate(-7deg) scale(1.1);
+    box-shadow: 0 5px 12px rgba(23, 54, 93, .16);
+}
+
+/* =========================================
+   SETTINGS SUCCESS NOTIFICATION
+========================================= */
+
+.settings-success {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    min-width: 0;
+    box-sizing: border-box;
+    margin-bottom: 22px;
+    padding: 15px 18px;
+    background: #edf8f1;
+    border: 1px solid #c9e8d3;
+    border-radius: 10px;
+    color: #247447;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    animation: editFadeLeft .65s ease .1s both;
+}
+
+.settings-success i {
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   PASSWORD INFORMATION
+========================================= */
+
+.settings-container .form-status-note {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.settings-container .form-status-note:last-child {
+    margin-top: 18px;
+    margin-bottom: 0;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+    .settings-success {
+        padding: 14px 16px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+    .form-section-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .settings-success {
+        gap: 9px;
+        margin-bottom: 18px;
+        padding: 12px 13px;
+        font-size: 12px;
+    }
+
+    .form-status-note {
+        font-size: 11px;
+        padding: 12px;
+    }
+
+    .form-section-heading {
+        gap: 10px;
+        margin-bottom: 17px;
+    }
+
+    .form-section-heading h4 {
+        font-size: 14px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+    .settings-success {
+        padding: 11px;
+        font-size: 11px;
+    }
+
+    .form-section-icon {
+        width: 29px;
+        height: 29px;
+        font-size: 12px;
+    }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .form-section-icon,
+    .settings-success {
+        animation: none !important;
+        transition: none !important;
+    }
+}

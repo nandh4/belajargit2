@@ -1,0 +1,251 @@
+
+/* =========================================
+   INFORMASI PENGGUNA
+========================================= */
+
+.user-reset-profile {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    min-width: 0;
+    padding: 5px 0;
+}
+
+.user-reset-avatar {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #eaf1fb;
+    color: #24558c;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.user-reset-details {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.user-reset-details h4 {
+    margin: 0 0 5px;
+    color: #26364b;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.user-reset-username {
+    display: block;
+    color: #8491a3;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.user-reset-role {
+    margin-top: 9px;
+}
+
+.user-reset-role .role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.user-reset-role .role-admin {
+    background: #e9efff;
+    color: #3158a5;
+}
+
+.user-reset-role .role-operator {
+    background: #e7f6ed;
+    color: #198754;
+}
+
+
+/* =========================================
+   PASSWORD FIELD
+========================================= */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 45px !important;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #8491a5;
+    cursor: pointer;
+    font-size: 14px;
+    transition: color .25s ease;
+}
+
+.toggle-password:hover {
+    color: #24558a;
+}
+
+
+/* =========================================
+   ERROR KONFIRMASI PASSWORD
+========================================= */
+
+#confirmationError {
+    color: #d64545;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-top: 2px;
+}
+
+
+/* =========================================
+   INFORMASI KEAMANAN
+========================================= */
+
+.form-status-note {
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+}
+
+.form-status-note i {
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .user-reset-profile {
+        gap: 15px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .user-reset-profile {
+        align-items: center;
+        gap: 13px;
+    }
+
+    .user-reset-avatar {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        font-size: 20px;
+        border-radius: 12px;
+    }
+
+    .user-reset-details h4 {
+        font-size: 15px;
+    }
+
+    .user-reset-username {
+        font-size: 12px;
+    }
+
+    .user-reset-role {
+        margin-top: 7px;
+    }
+
+    .user-reset-role .role-badge {
+        padding: 5px 9px;
+        font-size: 10px;
+    }
+
+    .form-status-note {
+        gap: 9px;
+        padding: 12px;
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    .password-wrapper input {
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .user-reset-profile {
+        gap: 10px;
+    }
+
+    .user-reset-avatar {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 18px;
+    }
+
+    .user-reset-details h4 {
+        font-size: 14px;
+    }
+
+    .user-reset-username {
+        font-size: 11px;
+    }
+
+    .form-status-note {
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    .password-wrapper input {
+        padding-left: 10px;
+        padding-right: 38px !important;
+    }
+
+    .toggle-password {
+        right: 11px;
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .user-reset-avatar,
+    .toggle-password {
+        transition: none !important;
+    }
+
+}

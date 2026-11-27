@@ -1,0 +1,1091 @@
+
+/* =====================================================
+   HALAMAN IMPORT CSV
+   Layout utama mengikuti dashboard.css
+   ===================================================== */
+
+
+/* =====================================================
+   TOPBAR - PROFIL PENGGUNA
+   ===================================================== */
+
+.top-bar {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+.user-profile-wrapper {
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   FORM CONTAINER
+   ===================================================== */
+
+.create-form-container {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(20, 45, 80, 0.07);
+    border: 1px solid #edf0f5;
+    margin-bottom: 30px;
+    transition: box-shadow .3s ease;
+}
+
+.create-form-container:hover {
+    box-shadow: 0 8px 25px rgba(20, 45, 80, .10);
+}
+
+
+/* =====================================================
+   HEADER FORM
+   ===================================================== */
+
+.create-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.create-form-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+}
+
+.create-form-title-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #eaf1fb;
+    color: #24558a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    flex-shrink: 0;
+    transition: transform .35s ease, background .35s ease;
+}
+
+.create-form-title-icon:hover {
+    transform: rotate(-10deg) scale(1.1);
+    background: #dce9f8;
+}
+
+.create-form-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #17365d;
+    margin: 0;
+}
+
+.create-form-description {
+    color: #8491a5;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 5px;
+}
+
+.required-info {
+    font-size: 12px;
+    color: #7c8798;
+}
+
+.required {
+    color: #e05252;
+}
+
+
+/* =====================================================
+   ALERT SUCCESS DAN ERROR
+   ===================================================== */
+
+.create-success {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    background: #edf9f1;
+    border: 1px solid #b9e5c7;
+    color: #237443;
+    border-radius: 10px;
+    padding: 15px 18px;
+    margin-bottom: 22px;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.create-success > i {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.create-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    background: #fff0f0;
+    border: 1px solid #f5c6cb;
+    color: #b42332;
+    border-radius: 10px;
+    padding: 15px 18px;
+    margin-bottom: 22px;
+    font-size: 13px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.create-error ul {
+    padding-left: 20px;
+    margin: 8px 0 0;
+}
+
+.create-error li {
+    margin-bottom: 5px;
+    overflow-wrap: anywhere;
+}
+
+
+/* =====================================================
+   FORM SECTION
+   ===================================================== */
+
+.data-section {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 23px;
+    border: 1px solid #edf0f5;
+    border-radius: 14px;
+    margin-bottom: 22px;
+    background: #ffffff;
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
+}
+
+.data-section:hover {
+    border-color: #c5d8e9;
+    box-shadow: 0 5px 16px rgba(23, 54, 93, .06);
+    transform: translateY(-2px);
+}
+
+.form-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    color: #17365d;
+    font-size: 15px;
+    font-weight: 700;
+    min-width: 0;
+}
+
+.form-section-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: #eaf1fb;
+    color: #24558a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.data-section:hover .form-section-number {
+    transform: rotate(-7deg) scale(1.1);
+    box-shadow: 0 5px 12px rgba(23, 54, 93, .16);
+}
+
+
+/* =====================================================
+   UPLOAD AREA
+   ===================================================== */
+
+.upload-area {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 38px 25px;
+    border: 2px dashed #cbd8e8;
+    border-radius: 13px;
+    background: #f8fafd;
+    cursor: pointer;
+    transition:
+        border-color .3s ease,
+        background .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.upload-area:hover {
+    border-color: #4b78ad;
+    background: #f1f6fc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 16px rgba(23, 54, 93, .06);
+}
+
+.upload-area.dragover {
+    border-color: #24558a;
+    background: #eaf1fb;
+    box-shadow: 0 0 0 4px rgba(36, 85, 138, .08);
+}
+
+.upload-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: #eaf1fb;
+    color: #24558a;
+    font-size: 27px;
+    margin-bottom: 17px;
+    transition: transform .35s ease;
+}
+
+.upload-area:hover .upload-icon {
+    transform: translateY(-5px);
+}
+
+.upload-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #17365d;
+    margin-bottom: 7px;
+}
+
+.upload-description {
+    color: #8491a5;
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.upload-description span {
+    color: #24558a;
+    font-weight: 700;
+}
+
+.upload-format {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 7px 12px;
+    margin-top: 15px;
+    background: #eaf1fb;
+    color: #24558a;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+#file {
+    display: none;
+}
+
+
+/* =====================================================
+   FILE INFO
+   ===================================================== */
+
+.file-info {
+    display: none;
+    align-items: center;
+    gap: 13px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 15px 17px;
+    margin-top: 17px;
+    border: 1px solid #dce6f1;
+    border-radius: 11px;
+    background: #f8fafd;
+}
+
+.file-info.show {
+    display: flex;
+    animation: editFieldIn .4s ease both;
+}
+
+.file-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #eaf1fb;
+    color: #24558a;
+    font-size: 18px;
+}
+
+.file-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.file-name {
+    color: #17365d;
+    font-size: 13px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.file-status {
+    color: #8491a5;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.file-remove {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: #fff0f0;
+    color: #d64545;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: .25s ease;
+}
+
+.file-remove:hover {
+    background: #fbdada;
+    transform: scale(1.08);
+}
+
+
+/* =====================================================
+   STATUS NOTE
+   ===================================================== */
+
+.form-status-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px 15px;
+    background: #f1f6fc;
+    border-radius: 10px;
+    color: #526b8b;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 18px;
+    min-width: 0;
+    transition:
+        background .3s ease,
+        transform .3s ease;
+}
+
+.form-status-note:hover {
+    background: #e8f1fb;
+    transform: translateX(4px);
+}
+
+.form-status-note i {
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   DAFTAR KOLOM CSV
+   ===================================================== */
+
+.column-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+    width: 100%;
+    min-width: 0;
+}
+
+.column-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 11px 13px;
+    border: 1px solid #edf0f5;
+    border-radius: 9px;
+    background: #ffffff;
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        transform .25s ease;
+}
+
+.column-item:hover {
+    border-color: #c5d8e9;
+    background: #f8fafd;
+    transform: translateY(-2px);
+}
+
+.column-check {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    background: #eaf1fb;
+    color: #24558a;
+    font-size: 10px;
+}
+
+.column-item code {
+    min-width: 0;
+    color: #34445c;
+    font-family: Consolas, monospace;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* =====================================================
+   FORM BUTTONS
+   ===================================================== */
+
+.create-buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid #edf0f5;
+}
+
+.create-button {
+    min-height: 42px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 20px;
+    border-radius: 9px;
+    border: none;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.create-back {
+    background: #edf0f4;
+    color: #596579;
+}
+
+.create-back:hover {
+    background: #dfe4eb;
+    color: #34445c;
+}
+
+.create-save {
+    background: #24558a;
+    color: #ffffff;
+}
+
+.create-save:hover {
+    background: #173f70;
+    box-shadow: 0 6px 15px rgba(36, 85, 138, .22);
+}
+
+.create-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(23, 54, 93, .13);
+}
+
+.create-button:active {
+    transform: scale(.97);
+}
+
+.create-button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   ANIMASI HALAMAN IMPORT
+   ===================================================== */
+
+@keyframes editFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes editFadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes editFieldIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.create-form-container {
+    animation: editFadeUp .7s ease both;
+}
+
+.create-form-header {
+    animation: editFadeLeft .65s ease .1s both;
+}
+
+.data-section {
+    opacity: 0;
+    animation: editFadeUp .65s ease forwards;
+}
+
+.data-section:nth-of-type(1) {
+    animation-delay: .15s;
+}
+
+.data-section:nth-of-type(2) {
+    animation-delay: .3s;
+}
+
+.create-buttons {
+    animation: editFadeUp .6s ease .45s both;
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET
+   ===================================================== */
+
+@media (max-width: 1050px) {
+
+    .create-form-container {
+        padding: 24px;
+    }
+
+    .data-section {
+        padding: 21px;
+    }
+
+    .column-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET KECIL
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .create-form-container {
+        padding: 21px;
+        border-radius: 15px;
+    }
+
+    .create-form-title {
+        font-size: 18px;
+    }
+
+    .create-form-description {
+        font-size: 12px;
+    }
+
+    .data-section {
+        padding: 19px;
+    }
+
+    .upload-area {
+        padding: 33px 20px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    /* TOPBAR - PROFIL TETAP DI KANAN */
+
+    .main-content > .top-bar {
+        width: 100% !important;
+        min-width: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+    }
+
+    .main-content > .top-bar > .page-title {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+    }
+
+    .main-content > .top-bar > .header-right {
+        width: 100% !important;
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    .main-content > .top-bar .user-profile-wrapper {
+        width: auto !important;
+        flex: 0 0 auto !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    .main-content > .top-bar .user-profile-button {
+        flex-shrink: 0 !important;
+    }
+
+
+    /* FORM CONTAINER */
+
+    .create-form-container {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .create-form-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+        padding-bottom: 17px;
+    }
+
+    .create-form-title-wrap {
+        width: 100%;
+        gap: 11px;
+    }
+
+    .create-form-title-icon {
+        width: 43px;
+        height: 43px;
+        font-size: 17px;
+        border-radius: 12px;
+    }
+
+    .create-form-title {
+        font-size: 17px;
+    }
+
+    .create-form-description {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+
+    /* ALERT */
+
+    .create-success,
+    .create-error {
+        padding: 13px;
+        font-size: 12px;
+        margin-bottom: 17px;
+    }
+
+
+    /* DATA SECTION */
+
+    .data-section {
+        padding: 17px;
+        margin-bottom: 17px;
+        border-radius: 12px;
+    }
+
+    .form-section-heading {
+        gap: 10px;
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    .form-section-number {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+
+    /* UPLOAD AREA */
+
+    .upload-area {
+        padding: 30px 15px;
+        border-radius: 11px;
+    }
+
+    .upload-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 24px;
+        margin-bottom: 14px;
+    }
+
+    .upload-title {
+        font-size: 14px;
+    }
+
+    .upload-description {
+        font-size: 11px;
+    }
+
+    .upload-format {
+        font-size: 10px;
+    }
+
+
+    /* FILE INFO */
+
+    .file-info {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .file-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+
+    .file-name {
+        font-size: 12px;
+    }
+
+    .file-status {
+        font-size: 10px;
+    }
+
+
+    /* STATUS NOTE */
+
+    .form-status-note {
+        padding: 11px 12px;
+        font-size: 11px;
+        gap: 8px;
+    }
+
+
+    /* KOLOM CSV */
+
+    .column-list {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .column-item {
+        padding: 10px 12px;
+    }
+
+    .column-item code {
+        font-size: 11px;
+    }
+
+
+    /* TOMBOL FORM */
+
+    .create-buttons {
+        flex-direction: column-reverse;
+        gap: 10px;
+        margin-top: 20px;
+        padding-top: 16px;
+    }
+
+    .create-button {
+        width: 100%;
+        min-height: 43px;
+        box-sizing: border-box;
+        font-size: 12px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE MOBILE KECIL
+   ===================================================== */
+
+@media (max-width: 500px) {
+
+    .create-form-container {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .create-form-title {
+        font-size: 16px;
+    }
+
+    .create-form-title-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .data-section {
+        padding: 14px;
+    }
+
+    .form-section-heading {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .upload-area {
+        padding: 25px 12px;
+    }
+
+    .upload-icon {
+        width: 53px;
+        height: 53px;
+        font-size: 22px;
+    }
+
+    .upload-title {
+        font-size: 13px;
+    }
+
+    .upload-description {
+        font-size: 10px;
+    }
+
+    .upload-format {
+        padding: 7px 9px;
+        font-size: 9px;
+    }
+
+    .column-item {
+        gap: 8px;
+        padding: 9px 10px;
+    }
+
+    .column-check {
+        width: 21px;
+        height: 21px;
+    }
+
+    .column-item code {
+        font-size: 10px;
+    }
+
+    .form-status-note {
+        font-size: 10px;
+        padding: 10px;
+    }
+
+    .create-success,
+    .create-error {
+        font-size: 11px;
+        padding: 11px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE MOBILE SANGAT KECIL
+   ===================================================== */
+
+@media (max-width: 380px) {
+
+    .create-form-container {
+        padding: 13px;
+    }
+
+    .create-form-title {
+        font-size: 15px;
+    }
+
+    .create-form-description {
+        font-size: 10px;
+    }
+
+    .create-form-title-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+
+    .data-section {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .form-section-heading {
+        font-size: 12px;
+        gap: 8px;
+    }
+
+    .form-section-number {
+        width: 27px;
+        height: 27px;
+        font-size: 11px;
+        border-radius: 8px;
+    }
+
+    .upload-area {
+        padding: 22px 9px;
+    }
+
+    .upload-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+        border-radius: 14px;
+    }
+
+    .upload-title {
+        font-size: 12px;
+    }
+
+    .upload-description {
+        font-size: 9px;
+    }
+
+    .upload-format {
+        font-size: 9px;
+        gap: 5px;
+    }
+
+    .file-info {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .file-icon {
+        width: 33px;
+        height: 33px;
+        font-size: 14px;
+    }
+
+    .file-name {
+        font-size: 10px;
+    }
+
+    .file-status {
+        font-size: 9px;
+    }
+
+    .file-remove {
+        width: 29px;
+        height: 29px;
+    }
+
+    .column-item code {
+        font-size: 9px;
+    }
+
+    .create-button {
+        padding: 11px 14px;
+        font-size: 11px;
+    }
+
+}
+
+
+/* =====================================================
+   AKSESIBILITAS ANIMASI
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .create-form-container,
+    .create-form-header,
+    .data-section,
+    .create-buttons,
+    .file-info.show {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .data-section,
+    .form-section-number,
+    .create-form-title-icon,
+    .create-button,
+    .form-status-note,
+    .upload-area,
+    .upload-icon,
+    .column-item,
+    .file-remove {
+        transition: none !important;
+    }
+
+}

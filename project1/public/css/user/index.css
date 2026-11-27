@@ -1,0 +1,867 @@
+
+/* =====================================================
+   KELOLA USER - CSS KHUSUS HALAMAN
+   Layout utama mengikuti dashboard.css
+   ===================================================== */
+
+
+/* =====================================================
+   ALERT NOTIFICATION
+   ===================================================== */
+
+.alert {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 16px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    animation: fadeDown 0.5s ease both;
+}
+
+.alert-success {
+    background: #eaf7ef;
+    border: 1px solid #ccebd7;
+    color: #398257;
+}
+
+.alert-error {
+    background: #fff0f0;
+    border: 1px solid #f3d1d1;
+    color: #b94b4b;
+}
+
+
+/* =====================================================
+   FILTER CARD
+   ===================================================== */
+
+.filter-card {
+    width: 100%;
+    min-width: 0;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e7ecf2;
+    border-radius: 13px;
+    box-shadow: 0 3px 12px rgba(30, 50, 75, 0.035);
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 15px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.form-group label {
+    color: #536477;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   INPUT DAN SELECT FILTER
+   ===================================================== */
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+.input-wrapper i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #94a1b1;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.input-wrapper .form-control {
+    padding-left: 35px;
+}
+
+.form-control {
+    width: 100%;
+    min-width: 0;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #dfe6ed;
+    border-radius: 8px;
+    outline: none;
+    background: #fbfcfe;
+    color: #42536a;
+    font-family: inherit;
+    font-size: 11px;
+    transition: 0.2s;
+}
+
+.form-control:focus {
+    border-color: #5785ad;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(49, 95, 136, 0.09);
+}
+
+.form-control::placeholder {
+    color: #a4afbd;
+}
+
+
+/* =====================================================
+   FILTER BUTTONS
+   ===================================================== */
+
+.filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.btn-primary,
+.btn-reset,
+.btn-add {
+    min-height: 39px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 17px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    border: 1px solid #315f88;
+    background: #315f88;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #244d73;
+    border-color: #244d73;
+}
+
+.btn-reset {
+    border: 1px solid #dce5ed;
+    background: #f5f8fb;
+    color: #60748a;
+}
+
+.btn-reset:hover {
+    background: #eaf0f6;
+    color: #315f88;
+}
+
+
+/* =====================================================
+   TOMBOL TAMBAH USER
+   ===================================================== */
+
+.btn-add {
+    min-height: 37px;
+    border: 1px solid #315f88;
+    background: #315f88;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.btn-add:hover {
+    background: #244d73;
+    box-shadow: 0 4px 10px rgba(36, 77, 115, 0.15);
+}
+
+.list-heading {
+    align-items: center;
+}
+
+
+/* =====================================================
+   TABLE CARD
+   ===================================================== */
+
+.table-card {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e6ebf1;
+    border-radius: 13px;
+    box-shadow: 0 3px 12px rgba(30, 50, 75, 0.035);
+}
+
+
+/* =====================================================
+   TABLE HEADER
+   ===================================================== */
+
+.table-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #edf0f4;
+}
+
+.table-card-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 5px;
+    color: #2d4056;
+    font-size: 14px;
+}
+
+.table-card-header h3 i {
+    color: #315f88;
+}
+
+.table-card-header p {
+    margin: 0;
+    color: #909baa;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.total-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    background: #eaf1f8;
+    color: #315f88;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   TABLE DATA
+   ===================================================== */
+
+.table-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+}
+
+.table-responsive thead {
+    background: #f3f7fb;
+}
+
+.table-responsive th {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e5eaf0;
+    color: #52657a;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.table-responsive td {
+    padding: 13px 16px;
+    border-bottom: 1px solid #edf0f4;
+    color: #566579;
+    font-size: 10px;
+    vertical-align: middle;
+}
+
+.table-responsive tbody tr {
+    transition: background 0.15s;
+}
+
+.table-responsive tbody tr:hover {
+    background: #f7faff;
+}
+
+.table-responsive tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.number-cell {
+    width: 55px;
+    color: #91a0b0 !important;
+    text-align: center;
+}
+
+
+/* =====================================================
+   NAMA USER
+   ===================================================== */
+
+.user-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 180px;
+}
+
+.user-table-avatar {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: #eaf1f8;
+    color: #315f88;
+    font-size: 12px;
+}
+
+.user-fullname {
+    color: #344c65;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.username-text {
+    display: inline-block;
+    color: #61758b;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.date-text {
+    color: #718195;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   ROLE BADGE
+   ===================================================== */
+
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.role-admin {
+    background: #eaf1f8;
+    color: #315f88;
+}
+
+.role-operator {
+    background: #e8f5ed;
+    color: #398257;
+}
+
+.role-default {
+    background: #edf0f4;
+    color: #667487;
+}
+
+
+/* =====================================================
+   TOMBOL AKSI CRUD
+   ===================================================== */
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+}
+
+.action-buttons form {
+    display: inline-flex;
+    margin: 0;
+}
+
+.action-edit,
+.action-delete {
+    width: 31px;
+    height: 31px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 11px;
+    transition: 0.2s;
+}
+
+.action-edit {
+    background: #eaf2fa;
+    color: #315f88;
+}
+
+.action-edit:hover {
+    background: #315f88;
+    color: #ffffff;
+}
+
+.action-delete {
+    background: #ffdfdf;
+    color: #c04e57;
+}
+
+.action-delete:hover:not(:disabled) {
+    background: #c04e57;
+    color: #ffffff;
+}
+
+.action-disabled,
+.action-disabled:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   TOMBOL RESET PASSWORD
+   ===================================================== */
+
+.action-reset {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #e8f5ee;
+    color: #198754;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-reset:hover {
+    background: #198754;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   EMPTY DATA
+   ===================================================== */
+
+.empty-data {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.empty-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 13px;
+    border-radius: 15px;
+    background: #edf3f9;
+    color: #6685a4;
+    font-size: 22px;
+}
+
+.empty-data h3 {
+    margin: 0 0 7px;
+    color: #394d64;
+    font-size: 14px;
+}
+
+.empty-data p {
+    max-width: 350px;
+    margin: 0 auto;
+    color: #94a0af;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   PAGINATION
+   ===================================================== */
+
+.pagination-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 20px;
+    border-top: 1px solid #edf0f4;
+}
+
+.pagination-info {
+    color: #8996a6;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.pagination-info strong {
+    color: #52657a;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination span {
+    min-width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 9px;
+    border: 1px solid #e0e7ee;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #65778b;
+    text-decoration: none;
+    font-size: 10px;
+    transition: 0.2s;
+}
+
+.pagination a:hover {
+    border-color: #315f88;
+    background: #edf3f9;
+    color: #315f88;
+}
+
+.pagination .active {
+    border-color: #315f88;
+    background: #315f88;
+    color: #ffffff;
+}
+
+.pagination .disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET
+   ===================================================== */
+
+@media (max-width: 1150px) {
+
+    .filter-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filter-card {
+        padding: 18px;
+    }
+
+    .table-responsive th,
+    .table-responsive td {
+        padding: 12px 13px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET KECIL
+   ===================================================== */
+
+@media (max-width: 950px) {
+
+    .table-card-header {
+        align-items: flex-start;
+    }
+
+    .pagination-area {
+        gap: 12px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .alert {
+        align-items: flex-start;
+        padding: 12px 13px;
+        font-size: 11px;
+    }
+
+    .filter-card {
+        padding: 15px;
+        border-radius: 11px;
+    }
+
+    .filter-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .form-group label {
+        font-size: 10px;
+    }
+
+    .form-control {
+        height: 39px;
+        font-size: 11px;
+    }
+
+    .filter-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .filter-actions a,
+    .filter-actions button {
+        flex: 1 1 0;
+        min-width: 0;
+        min-height: 38px;
+        padding: 0 10px;
+        font-size: 10px;
+    }
+
+    .list-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .total-badge {
+        padding: 7px 10px;
+        font-size: 9px;
+    }
+
+    .table-card {
+        border-radius: 11px;
+    }
+
+    .table-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .table-card-header h3 {
+        font-size: 13px;
+    }
+
+    .table-card-header p {
+        font-size: 9px;
+    }
+
+    .btn-add {
+        width: 100%;
+        min-height: 38px;
+        font-size: 10px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .table-responsive table {
+        min-width: 750px;
+    }
+
+    .table-responsive th {
+        padding: 12px;
+        font-size: 9px;
+    }
+
+    .table-responsive td {
+        padding: 11px 12px;
+        font-size: 9px;
+    }
+
+    .user-name-cell {
+        min-width: 170px;
+        gap: 8px;
+    }
+
+    .user-table-avatar {
+        width: 31px;
+        height: 31px;
+        font-size: 11px;
+    }
+
+    .user-fullname,
+    .username-text,
+    .date-text {
+        font-size: 9px;
+    }
+
+    .action-buttons {
+        gap: 6px;
+    }
+
+    .action-edit,
+    .action-delete {
+        width: 30px;
+        height: 30px;
+    }
+
+    .action-reset {
+        width: 32px;
+        height: 32px;
+    }
+
+    .empty-data {
+        padding: 35px 15px;
+    }
+
+    .empty-data h3 {
+        font-size: 13px;
+    }
+
+    .empty-data p {
+        font-size: 10px;
+    }
+
+    .pagination-area {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 13px 15px;
+    }
+
+    .pagination-info {
+        font-size: 9px;
+    }
+
+    .pagination {
+        width: 100%;
+        gap: 5px;
+    }
+
+    .pagination a,
+    .pagination span {
+        min-width: 29px;
+        height: 29px;
+        padding: 0 8px;
+        font-size: 9px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE MOBILE KECIL
+   ===================================================== */
+
+@media (max-width: 380px) {
+
+    .alert {
+        gap: 7px;
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    .filter-card {
+        padding: 12px;
+    }
+
+    .filter-actions {
+        gap: 7px;
+    }
+
+    .filter-actions a,
+    .filter-actions button {
+        padding: 0 7px;
+        font-size: 9px;
+    }
+
+    .table-card-header {
+        padding: 13px;
+    }
+
+    .total-badge {
+        font-size: 8px;
+    }
+
+    .pagination-area {
+        padding: 12px;
+    }
+
+    .pagination {
+        gap: 4px;
+    }
+
+    .pagination a,
+    .pagination span {
+        min-width: 27px;
+        height: 27px;
+        padding: 0 6px;
+        font-size: 9px;
+    }
+
+}
+
+
+/* =====================================================
+   REDUCE ANIMATION
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .alert,
+    .btn-primary,
+    .btn-reset,
+    .btn-add,
+    .action-edit,
+    .action-delete,
+    .action-reset,
+    .pagination a,
+    .table-responsive tbody tr {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}

@@ -1,0 +1,630 @@
+
+* {
+    box-sizing: border-box;
+}
+
+/* =========================================
+   SIDEBAR UTAMA
+========================================= */
+
+.sidebar {
+    width: 280px;
+    height: auto;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 16px;
+    background: linear-gradient(
+        160deg,
+        #17365D 0%,
+        #244B73 50%,
+        #17365D 100%
+    );
+    color: #FFFFFF;
+    box-shadow: 5px 0 25px rgba(17, 43, 73, 0.18);
+    z-index: 1100;
+    isolation: isolate;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition:
+        width 0.4s cubic-bezier(.4,0,.2,1),
+        padding 0.4s ease;
+    animation: sidebarAppear 0.65s ease both;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.25);
+    border-radius: 10px;
+}
+
+/* =========================================
+   ANIMASI SIDEBAR
+========================================= */
+
+@keyframes sidebarAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* =========================================
+   DEKORASI SIDEBAR - 5 LINGKARAN
+========================================= */
+
+.sidebar-decoration {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
+    background: rgba(255,255,255,0.035);
+    border: 3px solid rgba(255, 255, 255, .08);
+}
+
+/* LINGKARAN 1 */
+
+.sidebar-decoration-one {
+    width: 210px;
+    height: 210px;
+    top: 100px;
+    right: -125px;
+    animation: sidebarCircleFloatOne 9s ease-in-out infinite;
+}
+
+/* LINGKARAN 2 */
+
+.sidebar-decoration-two {
+    width: 150px;
+    height: 150px;
+    bottom: 100px;
+    left: -95px;
+    background: rgba(105,214,161,0.035);
+    border-color: rgba(105,214,161,0.08);
+    animation: sidebarCircleFloatTwo 11s ease-in-out infinite;
+}
+
+/* LINGKARAN 3 */
+
+.sidebar-decoration-three {
+    width: 85px;
+    height: 85px;
+    top: 42%;
+    right: 22px;
+    background: rgba(169,213,255,0.045);
+    border-color: rgba(169,213,255,0.12);
+    animation: sidebarCircleFloatThree 7s ease-in-out infinite;
+}
+
+/* LINGKARAN 4 */
+
+.sidebar-decoration-four {
+    width: 55px;
+    height: 55px;
+    top: 23%;
+    left: 25px;
+    background: rgba(255,255,255,0.025);
+    border-color: rgba(255,255,255,0.10);
+    animation: sidebarCircleFloatFour 8s ease-in-out infinite;
+}
+
+/* LINGKARAN 5 */
+
+.sidebar-decoration-five {
+    width: 115px;
+    height: 115px;
+    bottom: 22%;
+    right: -55px;
+    background: rgba(105,214,161,0.035);
+    border-color: rgba(105,214,161,0.10);
+    animation: sidebarCircleFloatFive 10s ease-in-out infinite;
+}
+
+/* =========================================
+   ANIMASI LINGKARAN
+========================================= */
+
+@keyframes sidebarCircleFloatOne {
+    0%, 100% {
+        transform: translate(0,0) scale(1);
+    }
+
+    50% {
+        transform: translate(-15px,25px) scale(1.08);
+    }
+}
+
+@keyframes sidebarCircleFloatTwo {
+    0%, 100% {
+        transform: translate(0,0) scale(1);
+    }
+
+    50% {
+        transform: translate(20px,-25px) scale(1.12);
+    }
+}
+
+@keyframes sidebarCircleFloatThree {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-22px) scale(1.15);
+    }
+}
+
+@keyframes sidebarCircleFloatFour {
+    0%, 100% {
+        transform: translate(0,0);
+    }
+
+    50% {
+        transform: translate(15px,18px);
+    }
+}
+
+@keyframes sidebarCircleFloatFive {
+    0%, 100% {
+        transform: translate(0,0) scale(1);
+    }
+
+    50% {
+        transform: translate(-20px,-18px) scale(1.1);
+    }
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.sidebar-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 35px;
+    padding-top: 40px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   TOMBOL COLLAPSE
+========================================= */
+
+.sidebar-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.12);
+    color: #FFFFFF;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background: #376A96;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.sidebar-toggle:active {
+    transform: none;
+}
+
+/* =========================================
+   TOMBOL HAMBURGER MOBILE
+========================================= */
+
+.mobile-sidebar-toggle {
+    display: none;
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.sidebar-brand {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    transition: all 0.35s ease;
+}
+
+.brand-icon {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    background: #FFFFFF;
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 17px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.13);
+    animation: logoFloat 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.brand-icon img {
+    width: 180%;
+    height: 180%;
+    object-fit: contain;
+    display: block;
+}
+
+.brand-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* =========================================
+   TEKS BRAND
+========================================= */
+
+.brand-text {
+    width: 100%;
+    text-align: center;
+}
+
+.brand-text h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    line-height: 1.5;
+    white-space: nowrap;
+    color: #FFFFFF;
+}
+
+.brand-text p {
+    margin: 6px 0 0;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #D8E7F5;
+}
+
+/* =========================================
+   JUDUL MENU
+========================================= */
+
+.menu-title {
+    margin-bottom: 13px;
+    padding-left: 10px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #BBD0E5;
+    white-space: nowrap;
+}
+
+/* =========================================
+   MENU SIDEBAR
+========================================= */
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.sidebar-menu a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 14px;
+    border-radius: 10px;
+    color: #EAF2FA;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0;
+    animation: menuAppear 0.5s ease forwards;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu a:nth-child(1) {
+    animation-delay: 0.12s;
+}
+
+.sidebar-menu a:nth-child(2) {
+    animation-delay: 0.19s;
+}
+
+.sidebar-menu a:nth-child(3) {
+    animation-delay: 0.26s;
+}
+
+.sidebar-menu a:nth-child(4) {
+    animation-delay: 0.33s;
+}
+
+.sidebar-menu a:nth-child(5) {
+    animation-delay: 0.40s;
+}
+
+@keyframes menuAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* =========================================
+   GARIS MENU AKTIF
+========================================= */
+
+.sidebar-menu a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20%;
+    width: 4px;
+    height: 60%;
+    background: #A9D5FF;
+    border-radius: 0 5px 5px 0;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+/* =========================================
+   HOVER
+========================================= */
+
+.sidebar-menu a:hover {
+    background: rgba(255,255,255,0.13);
+    color: #FFFFFF;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* =========================================
+   ACTIVE
+========================================= */
+
+.sidebar-menu a.active {
+    background: rgba(255,255,255,0.19);
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+}
+
+.sidebar-menu a.active::before {
+    transform: scaleY(1);
+}
+
+/* =========================================
+   ICON MENU
+========================================= */
+
+.menu-icon {
+    width: 23px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    transition: all 0.35s ease;
+}
+
+.sidebar-menu a:hover .menu-icon {
+    transform: scale(1.18) rotate(-5deg);
+    color: #A9D5FF;
+}
+
+/* =========================================
+   SIDEBAR COLLAPSED
+========================================= */
+
+body.sidebar-closed .sidebar {
+    width: 76px;
+    padding: 20px 10px;
+}
+
+body.sidebar-closed .sidebar-header {
+    padding-top: 48px;
+    align-items: center;
+}
+
+body.sidebar-closed .sidebar-toggle {
+    right: 9px;
+}
+
+body.sidebar-closed .sidebar-brand {
+    gap: 0;
+}
+
+body.sidebar-closed .brand-icon {
+    width: 43px;
+    height: 43px;
+    padding: 5px;
+    border-radius: 11px;
+}
+
+body.sidebar-closed .brand-text {
+    display: none;
+}
+
+body.sidebar-closed .menu-title {
+    display: none;
+}
+
+body.sidebar-closed .sidebar-menu a {
+    justify-content: center;
+    padding: 13px 5px;
+}
+
+body.sidebar-closed .sidebar-menu a span:not(.menu-icon) {
+    display: none;
+}
+
+body.sidebar-closed .sidebar-menu a::before {
+    display: block;
+}
+
+body.sidebar-closed .menu-icon {
+    width: 28px;
+    font-size: 19px;
+}
+
+/* MENU AKTIF SAAT SIDEBAR TERTUTUP */
+
+body.sidebar-closed .sidebar-menu a.active {
+    background: rgba(255,255,255,0.19);
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+}
+
+body.sidebar-closed .sidebar-menu a.active::before {
+    display: block;
+    transform: scaleY(1);
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main-content {
+    width: calc(100% - 280px);
+    margin-left: 280px;
+    min-height: 100vh;
+    min-width: 0;
+    transition:
+        width 0.4s cubic-bezier(.4,0,.2,1),
+        margin-left 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+body.sidebar-closed .main-content {
+    width: calc(100% - 76px);
+    margin-left: 76px;
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .mobile-sidebar-toggle {
+        display: none !important;
+    }
+
+    body:not(.sidebar-closed) .sidebar {
+        width: 280px;
+        transform: translateX(0);
+    }
+
+    body.sidebar-closed .sidebar {
+        width: 76px;
+        padding: 20px 10px;
+        transform: translateX(0);
+    }
+
+    body.sidebar-closed .sidebar-toggle {
+        display: flex !important;
+    }
+
+    .main-content {
+        width: calc(100% - 280px);
+        margin-left: 280px;
+    }
+
+    body.sidebar-closed .main-content {
+        width: calc(100% - 76px);
+        margin-left: 76px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .sidebar {
+        width: 280px;
+    }
+
+    body.sidebar-closed .sidebar {
+        width: 76px;
+    }
+
+    .main-content {
+        width: calc(100% - 280px);
+        margin-left: 280px;
+    }
+
+    body.sidebar-closed .main-content {
+        width: calc(100% - 76px);
+        margin-left: 76px;
+    }
+}
+
+/* =========================================
+   BODY SEBAGAI ACUAN TINGGI SIDEBAR
+========================================= */
+
+html,
+body {
+    position: relative;
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .sidebar,
+    .sidebar *,
+    .main-content,
+    .mobile-sidebar-toggle {
+        animation: none !important;
+        transition: none !important;
+    }
+}
